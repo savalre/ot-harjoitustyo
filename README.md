@@ -1,3 +1,7 @@
-#Tämä on otsikko
+<h1>Ohjelmistotekniikka, harjoitustyö</h1>
+<h2>Tehtävät</h2>
 
-Tässä tavallista tekstiä, osa **lihavoiden** ja osa *kursivoiden*.
+<h3>Viikko 1</h3>
+
+[gitlog.txt](https://github.com/savalre/ot-harjoitustyo/blob/master/laskarit/gitlog.txt)<br>
+[komentorivi.txt](https://github.com/savalre/ot-harjoitustyo/blob/master/laskarit/komentorivi.txt)
