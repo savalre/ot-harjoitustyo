@@ -8,5 +8,5 @@
 
 <h3> Viikko 2</h3>
 
-[Alustava vaatimusmäärittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)
+[Alustava vaatimusmäärittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)<br>
 [Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
