@@ -2,30 +2,34 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on miinaharava-peli. Pelaaja pelaa ruudukossa, jossa ensin kaikki ruudut ovat yksivärisiä. Pelaaja "klikkaa auki" ruutuja yksi kerrallaan, jolloin ruudusta paljastuu numero 1-8 välillä.
-Numero kertoo pelaajalle, kuinka monta miinaa avatun ruudun ympärillä on. Peli loppuu, kun pelaaja joko räjäyttää miinan (häviö), tai löytää kaikki miinat merkkaamalla miinoiksi epäilemänsä ruudut
-lipulla. 
+Sovellus on miinaharava-peli. Käyttäjä pelaa ruudukossa, jossa ensin kaikki ruudut ovat yksivärisiä. Käyttäjä "klikkaa auki" 
+ruutuja yksi kerrallaan, jolloin ruudusta paljastuu numero 1-8 välillä. Numero kertoo käyttäjälle, kuinka monta miinaa avatun ruudun ympärillä on. Jos klikatun
+ruudun ympärillä on paljon tyhjiä ruutuja, avaa peli useamman ruudun alueen käyttäjän puolesta. Käyttäjä voi merkitä hiiren oikealla klikkauksella ruudun miinaksi.
+Miinoja voi merkata vain rajatun määrän. Peli loppuu, kun käyttäjä joko räjäyttää miinan (häviö, tailöytää kaikki miinat merkkattuaan ne sisältämät ruudut
+lipulla ja avattuaan kaikki turvalliset ruudut. Pelissä on ajastin, jonka tuloksen voi tallentaa ennätystauluun, jos peli voitetaan.
 
 ## Suunnitellut toiminnallisuudet
 
 ### Ennen pelin alkua
-- Pelaaja voi valita vaikeustasin helppo, keskivaikea tai vaikea
-- Aloitusvalikosta löytyy ennätystaulu, joka näyttää n määrän parhaita pelejä
+- Käyttäjä voi valita vaikeustason helppo tai keskivaikea
+- Aloitusvalikosta löytyy ennätystaulu, joka näyttää viisi parasta tulosta
+  - Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
 
 ### Pelin aikana
+- Käyttäjä voi "aukaista" ruutuja klikkaamalla niitä, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina
+- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla (tapahtuu klikkaamalla hiiren oikeaa painiketta)
+- Käyttäjä voi lopettaa pelin sulkemalla sovelluksen yläkulman rastista
 
 ### Pelin jälkeen
-- Jos pelaaja hävisi, hän voi 
-- Jos pelaaja voitti, hän voi kirjata nimimerkkinsä ennätystaulua varten
+- Jos pelaaja hävisi, hän voi pelata uuden pelin tai palata alkuvalikkoon
+- Jos pelaaja voitti, hän voi kirjata nimimerkkinsä ennätystauluun varten, pelata uuden pelin tai palata alkuvalikkoon
+- Sovellus tallentaa ennätystauluun voittaneen käyttäjän nimimerkin ja pelikellon ajan
+  - Jos käyttäjän aika ei ole tämän tason viiden parhaan tallennetun ajan joukossa, peli ei tarjoa mahdollisuutta tallentaa ennätystä
+  - Jos tietokantataulua ei ole vielä olemassa, sovellus luo sellaisen
+  - Sovellus tallentaa tuloksen tietokantatauluun
 
 ## Jatkokehitysideoita
-
-Sovellusta voi laajent
-
-Sovelluksen tarkoitus eli pieni tekstuaalinen yleiskuvaus sovelluksesta
-Käyttäjät eli tieto erilaisista käyttäjärooleista, joita järjestelmässä on
-Tosin jos sovelluksessasi on vain yhdenlaisia käyttäjiä, ei kohtaa tarvita. Näin lienee tilanne monissa harjoitustöiden aiheissa kuten peleissä.
-Suunnitellut toiminnallisuudet
-Toiminnallisuudet voi kuvata ranskalaisina viivoina samaan tapaan kuin referenssiprojektissa
-Referenssiprojektissa on kuvattu perusversion eli jo “kurssin alkupuolella” toteutettavan ydintoiminnallisuuden toiminnallisuudet tarkemmin
-Perusversiota laajentavat jatkokehitysideat ovat omassa listassaan
+- Käyttäjä voi generoida itse oman kokoisensa pelilaudan ja asettaa sinne haluamansa määrän miinoja
+- Peliin voi tehdä lisätasoja, kuten vaikea tai supervaikea
+- Pelilaudan värin ja lippujen värin voi valita itse
+- Pelistä löytyy useampi ennätystaulu: valittavat tasot (helppo, keskivaikea, vaikea), sekä custom-taulujen ennätykset
