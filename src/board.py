@@ -9,9 +9,9 @@ class Board:
         self.level = level
         self.n = grid_width
         self.grid_values = []
-        self.__player_view = []
+        self.player_view = []
         self.__create_hidden_board(self.grid_values)
-        self.__create_player_board(self.__player_view)
+        self.__create_player_board(self.player_view)
     
 
     def __create_hidden_board(self, grid_values):
@@ -19,8 +19,8 @@ class Board:
         add_mines(self, self.level, self.grid_values)
         add_numbers_to_squares(self, self.grid_values)
 
-    def __create_player_board(self, __player_view):
-        self.___player_view = [[' ' for y in range(self.n)] for x in range(self.n)]
+    def __create_player_board(self, player_view):
+        self.player_view = [['*' for y in range(self.n)] for x in range(self.n)]
     
 
         
@@ -83,8 +83,3 @@ def gameplay(self):
         for y in x:
             print(y, end = " ")
         print()
-
-#__name__ == '__main__'
-
-#board = Board(10, "Easy")
-#gameplay(board)

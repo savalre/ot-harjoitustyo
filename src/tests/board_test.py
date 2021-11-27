@@ -3,7 +3,8 @@ from board import Board
 
 class TestBoard(unittest.TestCase):
     def setUp(self):
-        self.board = Board(10, "Easy")
+        self.board = Board("Easy",10)
     
-    def board_generated(self):
+    def test_board_generated(self):
         self.assertNotEqual(self.board, None)
+    

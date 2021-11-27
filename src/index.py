@@ -31,7 +31,6 @@ def grid_width(level):
     return grid
 
 
-
 __name__ == '__main__'
 
 print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
@@ -55,7 +54,7 @@ while not end:
             print(y, end = " ")
         print(" ")
 
-    command = input("You can't play this yet but this is how the generated board with values looks. Exit by typing e\n")
+    command = input("You can't play the game yet, but this is how the game generates the values of gameboard. Exit by typing e\n")
+    
     if command == "e":
         exit()
-        
