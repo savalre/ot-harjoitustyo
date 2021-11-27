@@ -1,3 +1,8 @@
 | Päivä | Käytetty aika | Sisältö  |
 | :----:|:--------------| :-----|
 | 16.11.21 |   2   | Aiheen ideointia, pygameen ja poetryyn tutustumista |
+| 18.11.21 |   1   | Pythonin asennusongelmien ratkomista |
+| 19.11.21 |   1   | Tkinterin asennusongelmien ratkomista, rakenteen suunnittelua |
+| 24.11.21 |   1   | Luokkien suunnittelu, Board-luokan toteutus |
+| 26.11.21 |   2  | Pelin käynnistäminen, tason valinnan toteuttamista |
+| 27.11.21 |   2  | Board-luokan muokkaamista, testien rakennus ja coveragen asennus |
