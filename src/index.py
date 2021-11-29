@@ -1,4 +1,5 @@
 from board import *
+import pygame
 
 def select_level():
     return_value = ""
@@ -31,30 +32,29 @@ def grid_width(level):
     return grid
 
 
-__name__ == '__main__'
-
-print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
-print(" ")
-command = int(input("Press 1 if you want to play, press 2 if you want to quit "))
-
-if command == 2:
-    exit()
-
-if command == 1:
-    level = select_level()
-    grid_width = grid_width(level)
-    gameboard = Board(level, grid_width)
-
-end = False
-
-while not end:
+if __name__ == '__main__':
+    print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
     print(" ")
-    for x in gameboard.grid_values:
-        for y in x:
-            print(y, end = " ")
-        print(" ")
+    command = int(input("Press 1 if you want to play, press 2 if you want to quit "))
 
-    command = input("You can't play the game yet, but this is how the game generates the values of gameboard. Exit by typing e\n")
-    
-    if command == "e":
+    if command == 2:
         exit()
+
+    if command == 1:
+        level = select_level()
+        grid_width = grid_width(level)
+        gameboard = Board(level, grid_width)
+
+    end = False
+
+    while not end:
+        print(" ")
+        for x in gameboard.grid_values:
+            for y in x:
+                print(y, end = " ")
+            print(" ")
+
+        command = input("You can't play the game yet, but this is how the game generates the values of gameboard. Exit by typing e\n")
+        
+        if command == "e":
+            exit()

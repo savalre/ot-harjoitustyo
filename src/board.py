@@ -5,7 +5,7 @@ from array import *
 
 class Board:
 
-    def __init__(self, level: str, grid_width:int):
+    def __init__(self, level: str, grid_width: int):
         self.level = level
         self.n = grid_width
         self.grid_values = []
@@ -37,7 +37,7 @@ def add_mines(self, level:str, grid_values):
     i = 0
 
     while i < mines:
-        num = random.randint(0, self.n * self.n-1)
+        num = random.randint(0, (self.n * self.n) - 1)
 
         row = num // self.n
         column = num % self.n

@@ -9,6 +9,9 @@ def start(ctx):
 	ctx.run("python3 src/index.py")
 
 @task
-def coverage_report(ctx):
-	ctx.run("coverage report -m")
+def coverage(ctx):
+	ctx.run("coverage run --branch -m pytest src")
 
+@task(coverage)
+def coverage_report(ctx):
+    ctx.run("coverage html")
