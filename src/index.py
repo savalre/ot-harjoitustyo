@@ -1,4 +1,4 @@
-from board import *
+from board import * 
 from events import open_square
 import pygame
 
@@ -50,14 +50,21 @@ if __name__ == '__main__':
 
     while not end:
         print(" ")
-        for x in gameboard.player_view: #player_view oikeesti
+        for x in gameboard.player_view:
             for y in x:
                 print(y, end = " ")
-            print(" ")
+            print()
 
         command = input("Open a square by typing row number and column number separated by space (e.g. 1 2). Exit by typing e\n")
         
         if command == "e":
             exit()
+
+        game_over = open_square(gameboard, command)
+
+        if game_over == True:
+            print_board(gameboard)
+            print("Game over")
+            end = True
+            
         
-        open_square(gameboard, command)

@@ -78,8 +78,8 @@ def add_numbers_to_squares(self, grid_values):
             if x > 0 and y < self.n-1 and grid_values[x-1][y+1] == 'M':
                 grid_values[x][y] = grid_values[x][y] + 1
 
-def gameplay(self):
-    for x in self.grid_values:
+def print_board(self):
+    for x in self.player_view:
         for y in x:
             print(y, end = " ")
         print()
