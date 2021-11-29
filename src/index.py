@@ -1,4 +1,5 @@
 from board import *
+from events import open_square
 import pygame
 
 def select_level():
@@ -49,12 +50,14 @@ if __name__ == '__main__':
 
     while not end:
         print(" ")
-        for x in gameboard.grid_values:
+        for x in gameboard.player_view: #player_view oikeesti
             for y in x:
                 print(y, end = " ")
             print(" ")
 
-        command = input("You can't play the game yet, but this is how the game generates the values of gameboard. Exit by typing e\n")
+        command = input("Open a square by typing row number and column number separated by space (e.g. 1 2). Exit by typing e\n")
         
         if command == "e":
             exit()
+        
+        open_square(gameboard, command)

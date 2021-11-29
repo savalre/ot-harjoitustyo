@@ -34,16 +34,16 @@ def add_mines(self, level:str, grid_values):
     if(self.level == "Hard"):
         mines = 99
     
-    i = 0
+    count = 0
 
-    while i < mines:
+    while count < mines:
         num = random.randint(0, (self.n * self.n) - 1)
 
         row = num // self.n
         column = num % self.n
 
         if grid_values[row][column] != 'M':
-            i = i+1
+            count = count+1
             grid_values[row][column] = 'M'
 
 
