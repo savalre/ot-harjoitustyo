@@ -20,6 +20,8 @@ Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käytt
 ### Pelin aikana
 - Käyttäjä voi "aukaista" ruutuja, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina TEHTY
 - Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla 
+- Jos pelaaja avaa ruudun, jossa on miina, peli loppuu TEHTY
+- Jos pelaaja avaa ruudun, jonka arvo on 0, peli avaa niin monta nollan arvoista naapuriruutua ja niiden naapuriruutua, kunnes kaikki ruudun naapurien nollat on avattu TEHTY
 - Käyttäjä voi lopettaa pelin TEHTY
 
 ### Pelin jälkeen
