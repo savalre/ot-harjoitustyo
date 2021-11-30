@@ -8,20 +8,25 @@ ruudun ympärillä on paljon tyhjiä ruutuja, avaa peli useamman ruudun alueen k
 Miinoja voi merkata vain rajatun määrän. Peli loppuu, kun käyttäjä joko räjäyttää miinan (häviö, tailöytää kaikki miinat merkkattuaan ne sisältämät ruudut
 lipulla ja avattuaan kaikki turvalliset ruudut. Pelissä on ajastin, jonka tuloksen voi tallentaa ennätystauluun, jos peli voitetaan.
 
+Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käyttöliittymä myöhemmin kurssin aikana.
+
 ## Suunnitellut toiminnallisuudet
 
 ### Ennen pelin alkua
-- Käyttäjä voi valita vaikeustason helppo tai keskivaikea
+- Käyttäjä voi valita vaikeustason helppo tai keskivaikea TEHTY
 - Aloitusvalikosta löytyy ennätystaulu, joka näyttää viisi parasta tulosta
-  - Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
+- Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
 
 ### Pelin aikana
-- Käyttäjä voi "aukaista" ruutuja klikkaamalla niitä, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina
-- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla (tapahtuu klikkaamalla hiiren oikeaa painiketta)
-- Käyttäjä voi lopettaa pelin sulkemalla sovelluksen yläkulman rastista
+- Käyttäjä voi "aukaista" ruutuja, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina TEHTY
+- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla 
+- Käyttäjä voi lopettaa pelin TEHTY
 
 ### Pelin jälkeen
-- Jos pelaaja hävisi, hän voi pelata uuden pelin tai palata alkuvalikkoon
+- Jos pelaaja hävisi:
+  -  peli ilmoittaa häviöstä TEHTY
+  -  peli paljastaa kaikki miinat pelilaudalta TEHTY
+  -  pelaaja voi pelata uuden pelin tai palata alkuvalikkoon 
 - Jos pelaaja voitti, hän voi kirjata nimimerkkinsä ennätystauluun varten, pelata uuden pelin tai palata alkuvalikkoon
 - Sovellus tallentaa ennätystauluun voittaneen käyttäjän nimimerkin ja pelikellon ajan
   - Jos käyttäjän aika ei ole tämän tason viiden parhaan tallennetun ajan joukossa, peli ei tarjoa mahdollisuutta tallentaa ennätystä
@@ -30,6 +35,7 @@ lipulla ja avattuaan kaikki turvalliset ruudut. Pelissä on ajastin, jonka tulok
 
 ## Jatkokehitysideoita
 - Käyttäjä voi generoida itse oman kokoisensa pelilaudan ja asettaa sinne haluamansa määrän miinoja
+- Sovellukseen tehdään graafinen käyttöliittymä
 - Peliin voi tehdä lisätasoja, kuten vaikea tai supervaikea
 - Pelilaudan värin ja lippujen värin voi valita itse
 - Pelistä löytyy useampi ennätystaulu: valittavat tasot (helppo, keskivaikea, vaikea), sekä custom-taulujen ennätykset
