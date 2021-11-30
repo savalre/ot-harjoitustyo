@@ -7,4 +7,5 @@
 | 26.11.21 |   2  | Pelin käynnistäminen, tason valinnan toteuttamista |
 | 27.11.21 |   2  | Board-luokan muokkaamista, testien rakennus ja coveragen asennus |
 | 29.11.21 |   3  | Events-tiedoston luonti, coverage-komennon korjaaminen, käyttäjä voi hävitä pelin, häviön totetuttaminen |
-| **Yhteensä** |   **11**  |  |
+| 29.11.21 |   3  | pylintin käyttöönotto ja koodin laadun parantaminen. nollaruudun avaaminen avaa naapuriruutujen nollat. events-tiedoston rakentamista |
+| **Yhteensä** |   **14**  |  |
