@@ -6,7 +6,7 @@ Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus
 
 ## Dokumentaatio
 [Määrittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
-[Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)
+[Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)  
 [Luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/f14552c60e27a7fa43cfb7daf850fba0e176957d/dokumentaatio/arkkitehtuuri.md)
 
 ## Sovelluksen asennus
