@@ -13,7 +13,7 @@ Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käytt
 ## Suunnitellut toiminnallisuudet
 
 ### Ennen pelin alkua
-- Käyttäjä voi valita vaikeustason helppo tai keskivaikea TEHTY
+- Käyttäjä voi valita vaikeustason helppo, keskivaikea tai vaikea TEHTY
 - Aloitusvalikosta löytyy ennätystaulu, joka näyttää viisi parasta tulosta
 - Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
 
@@ -36,6 +36,6 @@ Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käytt
 ## Jatkokehitysideoita
 - Käyttäjä voi generoida itse oman kokoisensa pelilaudan ja asettaa sinne haluamansa määrän miinoja
 - Sovellukseen tehdään graafinen käyttöliittymä
-- Peliin voi tehdä lisätasoja, kuten vaikea tai supervaikea
+- Peliin voi tehdä lisätasoja, kuten supervaikea
 - Pelilaudan värin ja lippujen värin voi valita itse
 - Pelistä löytyy useampi ennätystaulu: valittavat tasot (helppo, keskivaikea, vaikea), sekä custom-taulujen ennätykset
