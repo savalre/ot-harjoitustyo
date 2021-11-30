@@ -6,3 +6,5 @@
 | 24.11.21 |   1   | Luokkien suunnittelu, Board-luokan toteutus |
 | 26.11.21 |   2  | Pelin käynnistäminen, tason valinnan toteuttamista |
 | 27.11.21 |   2  | Board-luokan muokkaamista, testien rakennus ja coveragen asennus |
+| 29.11.21 |   3  | Events-tiedoston luonti, coverage-komennon korjaaminen, käyttäjä voi hävitä pelin, häviön totetuttaminen |
+| **Yhteensä** |   **11**  |  |
