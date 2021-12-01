@@ -14,8 +14,15 @@ def open_square(gameboard, command: str):
     row = int(square[0])-1
     column = int(square[1])-1
 
+    # if row > or column > :
+    #  print("Wrong input! Try again!")
+    #   return
+
     if len(square) == 3 and square[2] == 'F':
         __process_flags(gameboard, row, column)
+        return
+
+    if gameboard.player_view[row][column] == 'F':
         return
 
     gameboard.player_view[row][column] = gameboard.grid_values[row][column]

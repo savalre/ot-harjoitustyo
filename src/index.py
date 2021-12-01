@@ -72,3 +72,7 @@ if __name__ == '__main__':
             print("You hit a mine! Game over!")
             end = True
 
+#pelin voi voittaa :D:
+    # pelaaja avaa kaikki turvalliset ruudut
+
+#input handler pls ettei tarvi koko ajan rankaista mokailusta. eventtiin varmaankin
