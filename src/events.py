@@ -3,36 +3,54 @@ import board
 
 
 def open_square(gameboard, command: str):
+
+    square = __check_input(gameboard, command)
+
+    if square is False:
+        print("Wrong input! Try again!\n")
+
+    else:
+
+        row = int(square[0])-1
+        column = int(square[1])-1
+
+        if len(square) == 3 and square[2] == 'F':
+            __process_flags(gameboard, row, column)
+            return
+
+        if gameboard.player_view[row][column] == 'F':
+            return
+
+        gameboard.player_view[row][column] = gameboard.grid_values[row][column]
+
+        game_over = __check_if_lost(gameboard, row, column)
+
+        if game_over is False and gameboard.grid_values[row][column] == 0:
+            __open_all_zero_squares(gameboard, row, column)
+
+        return game_over
+
+def __check_input(gameboard, command):
     command.strip()
 
     square = command.split()
 
     if not square[0].isnumeric():
-        print("Wrong input! Try again!")
-        return
+        return False
 
-    row = int(square[0])-1
-    column = int(square[1])-1
+    if len(square) > 3 or len(square) < 2:
+        return False
+    
+    if len(square) == 3 and square[2] != 'F':
+        return False
 
-    # if row > or column > :
-    #  print("Wrong input! Try again!")
-    #   return
+    if int(square[0]) > gameboard.dimension or int(square[0]) < 1:
+        return False
+    
+    if int(square[1]) > gameboard.dimension or int(square[1]) < 1:
+        return False
 
-    if len(square) == 3 and square[2] == 'F':
-        __process_flags(gameboard, row, column)
-        return
-
-    if gameboard.player_view[row][column] == 'F':
-        return
-
-    gameboard.player_view[row][column] = gameboard.grid_values[row][column]
-
-    game_over = __check_if_lost(gameboard, row, column)
-
-    if game_over is False and gameboard.grid_values[row][column] == 0:
-        __open_all_zero_squares(gameboard, row, column)
-
-    return game_over
+    return square
 
 
 def __check_if_lost(gameboard, row, column):
