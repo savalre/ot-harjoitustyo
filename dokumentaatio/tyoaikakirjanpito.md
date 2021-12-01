@@ -8,4 +8,6 @@
 | 27.11.21 |   2  | Board-luokan muokkaamista, testien rakennus ja coveragen asennus |
 | 29.11.21 |   3  | Events-tiedoston luonti, coverage-komennon korjaaminen, käyttäjä voi hävitä pelin, häviön totetuttaminen |
 | 29.11.21 |   3  | pylintin käyttöönotto ja koodin laadun parantaminen. nollaruudun avaaminen avaa naapuriruutujen nollat. events-tiedoston rakentamista |
-| **Yhteensä** |   **14**  |  |
+| 30.11.21 |   1  | sekvenssikaavion tekeminen, avatessa nollaruudun kaikki sen naapuritkin avataan |
+| 1.12.21 |   2  | pelaaja voi nyt merkitä miinaksi epäilemänsä ruudun lipulla |
+| **Yhteensä** |   **17**  |  |
