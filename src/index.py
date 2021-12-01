@@ -57,6 +57,9 @@ if __name__ == '__main__':
             print()
 
         print("Open a square by typing row number SPACE column number (e.g. 1 2)\n")
+        print("Flag a mine by typing F after row and column number (e.g. 1 2 F)\n")
+        print("Unflag a mine by flagging a square again.\n")
+        print(f"You have {gameboard.flags} flags left")
         command = input("Exit by typing e\n")
 
         if command == "e":
@@ -68,3 +71,4 @@ if __name__ == '__main__':
             print_board(gameboard)
             print("You hit a mine! Game over!")
             end = True
+

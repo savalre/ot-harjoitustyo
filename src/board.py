@@ -6,6 +6,7 @@ class Board:
 
     def __init__(self, level: str, grid_width: int):
         self.level = level
+        self.flags = 0
         self.dimension = grid_width
         self.grid_values = []
         self.player_view = []
@@ -24,12 +25,15 @@ class Board:
 def add_mines(self, level:str, grid_values):
     if self.level == "Easy":
         mines = 10
+        self.flags = 10
 
     if self.level == "Medium":
         mines = 40
+        self.flags = 40
 
     if self.level == "Hard":
         mines = 99
+        self.flags = 99
 
     count = 0
 
