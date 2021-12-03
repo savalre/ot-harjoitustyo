@@ -1,4 +1,5 @@
-# This class handles game events, such as flagging the mines and user commands
+"""This file handles game events, such as flagging the mines and user commands"""
+
 import board
 
 
@@ -8,6 +9,7 @@ def open_square(gameboard, command: str):
 
     if square is False:
         print("Wrong input! Try again!\n")
+        return (False,0)
 
     else:
 
@@ -16,19 +18,32 @@ def open_square(gameboard, command: str):
 
         if len(square) == 3 and square[2] == 'F':
             __process_flags(gameboard, row, column)
-            return
+            return (False, 0)
 
         if gameboard.player_view[row][column] == 'F':
-            return
+            return (False, 0)
 
         gameboard.player_view[row][column] = gameboard.grid_values[row][column]
 
+        check_win = __check_if_won(gameboard, row, column)
+
+        if check_win is True:
+            return (True, 1)
+        # TRUE,1 on voitto. TRUE,0 on häviö. FALSE,0 on peli jatkuu
+
         game_over = __check_if_lost(gameboard, row, column)
+
+        if game_over is True:
+            return (True, 0)
 
         if game_over is False and gameboard.grid_values[row][column] == 0:
             __open_all_zero_squares(gameboard, row, column)
+            return(False, 0)
+        
+        if check_win is False:
+            return(False, 0)
 
-        return game_over
+#AVATTUA RUUTUA EI SAA FLÄGÄTÄ! HUPS EIKÄ NORMO RUUTUAKAAN JOS SE ON AUKI
 
 def __check_input(gameboard, command):
     command.strip()
@@ -40,22 +55,38 @@ def __check_input(gameboard, command):
 
     if len(square) > 3 or len(square) < 2:
         return False
-    
+
     if len(square) == 3 and square[2] != 'F':
         return False
 
     if int(square[0]) > gameboard.dimension or int(square[0]) < 1:
         return False
-    
+
     if int(square[1]) > gameboard.dimension or int(square[1]) < 1:
         return False
 
     return square
 
 
+def __check_if_won(gameboard, row, column):
+    counter = 0
+    for row in range(gameboard.dimension):
+        for column in range(gameboard.dimension):
+            if gameboard.player_view[row][column] != 'M':
+                if gameboard.player_view[row][column] != '*':
+                    if gameboard.player_view[row][column] != 'F':
+                        counter = counter+1
+
+    mines_from_squares = (gameboard.dimension * gameboard.dimension) - gameboard.mines
+    print(f"tarkastettiin voitto ja counter oli {counter}, mines from squares taas {mines_from_squares}")
+    if counter == mines_from_squares:
+        return True
+
+    return False
+
+
 def __check_if_lost(gameboard, row, column):
     if gameboard.grid_values[row][column] == 'M':
-
         for row in range(gameboard.dimension):
             for column in range(gameboard.dimension):
                 if gameboard.grid_values[row][column] == 'M':
@@ -68,6 +99,7 @@ def __check_if_lost(gameboard, row, column):
                     gameboard.player_view[row][column] = 'X'
 
         return True
+
     return False
 
 

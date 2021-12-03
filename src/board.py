@@ -1,5 +1,6 @@
-#this class generates two boards for the game:
-#one with actual values and one that is shown to the player
+"""this class generates two boards for the game:
+    one with actual values and one that is shown to the player"""
+
 import random
 
 class Board:
@@ -7,6 +8,7 @@ class Board:
     def __init__(self, level: str, grid_width: int):
         self.level = level
         self.flags = 0
+        self.mines = 0
         self.dimension = grid_width
         self.grid_values = []
         self.player_view = []
@@ -24,20 +26,20 @@ class Board:
 
 def add_mines(self, level:str, grid_values):
     if self.level == "Easy":
-        mines = 10
+        self.mines = 10
         self.flags = 10
 
     if self.level == "Medium":
-        mines = 40
+        self.mines = 40
         self.flags = 40
 
     if self.level == "Hard":
-        mines = 99
+        self.mines = 99
         self.flags = 99
 
     count = 0
 
-    while count < mines:
+    while count < self.mines:
         num = random.randint(0, (self.dimension * self.dimension) - 1)
 
         row = num // self.dimension
