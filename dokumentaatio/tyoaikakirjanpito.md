@@ -10,4 +10,5 @@
 | 29.11.21 |   3  | pylintin käyttöönotto ja koodin laadun parantaminen. nollaruudun avaaminen avaa naapuriruutujen nollat. events-tiedoston rakentamista |
 | 30.11.21 |   1  | sekvenssikaavion tekeminen, avatessa nollaruudun kaikki sen naapuritkin avataan |
 | 1.12.21 |   3  | pelaaja voi nyt merkitä miinaksi epäilemänsä ruudun lipulla. väärä syöte ei kaada peliä |
-| **Yhteensä** |   **18**  |  |
+| 3.12.21 |   2  | pelin voi voittaa ja peli ilmottaa siitä |
+| **Yhteensä** |   **20**  |  |
