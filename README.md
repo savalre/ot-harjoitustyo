@@ -4,6 +4,8 @@ Sovellus on klassikkopeli Miinaharava. Miinaharavan säännöt voi tarkistaa esi
 
 Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus on kurssin puitteissa tehdä myös graafinen käyttöliittymä. 
 
+## Release viikko 5
+[Linkki viikon 5 releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko5)
 ## Dokumentaatio
 [Määrittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
 [Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)  
