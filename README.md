@@ -25,3 +25,6 @@ Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus
 
 1. Aja testit komennolla **poetry run invoke test**
 2. Jos haluat testikattavuusraportin, aja komento **poetry run invoke coverage-report**
+
+## Pylint
+1. Aja pylint-tarkistus komennolla **poetry run invoke lint**
