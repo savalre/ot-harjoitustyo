@@ -13,13 +13,13 @@ Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käytt
 ## Suunnitellut toiminnallisuudet
 
 ### Ennen pelin alkua
-- Käyttäjä voi valita vaikeustason helppo, keskivaikea tai vaikea TEHTY
+- Käyttäjä voi valita vaikeustason helppo, keskivaikea tai vaikea TEHTY 
 - Aloitusvalikosta löytyy ennätystaulu, joka näyttää viisi parasta tulosta
 - Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
 
 ### Pelin aikana
 - Käyttäjä voi "aukaista" ruutuja, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina TEHTY
-- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla 
+- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla TEHTY
 - Jos pelaaja avaa ruudun, jossa on miina, peli loppuu TEHTY
 - Jos pelaaja avaa ruudun, jonka arvo on 0, peli avaa niin monta nollan arvoista naapuriruutua ja niiden naapuriruutua, kunnes kaikki ruudun naapurien nollat on avattu TEHTY
 - Käyttäjä voi lopettaa pelin TEHTY
