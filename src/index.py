@@ -73,7 +73,6 @@ if __name__ == '__main__':
             sys.exit()
 
         check_game_status = open_square(gameboard, command)
-        print(f"tarkistettiin status ja tulos oli {check_game_status}")
 
         if check_game_status[0] is True:
             print_board(gameboard)
@@ -83,7 +82,4 @@ if __name__ == '__main__':
             else:
                 print("You hit a mine! Game over!")
                 end = True
-
-# pelin voi voittaa :D:
-    # pelaaja avaa kaikki turvalliset ruudut
-    # tää on ainut mikä puuttuu. tee se ja sit ala testata plz
+                

@@ -9,7 +9,7 @@ def open_square(gameboard, command: str):
 
     if square is False:
         print("Wrong input! Try again!\n")
-        return (False,0)
+        return (False, 0)
 
     else:
 
@@ -39,11 +39,10 @@ def open_square(gameboard, command: str):
         if game_over is False and gameboard.grid_values[row][column] == 0:
             __open_all_zero_squares(gameboard, row, column)
             return(False, 0)
-        
+
         if check_win is False:
             return(False, 0)
 
-#AVATTUA RUUTUA EI SAA FLÄGÄTÄ! HUPS EIKÄ NORMO RUUTUAKAAN JOS SE ON AUKI
 
 def __check_input(gameboard, command):
     command.strip()
@@ -77,8 +76,8 @@ def __check_if_won(gameboard, row, column):
                     if gameboard.player_view[row][column] != 'F':
                         counter = counter+1
 
-    mines_from_squares = (gameboard.dimension * gameboard.dimension) - gameboard.mines
-    print(f"tarkastettiin voitto ja counter oli {counter}, mines from squares taas {mines_from_squares}")
+    mines_from_squares = (gameboard.dimension *
+                          gameboard.dimension) - gameboard.mines
     if counter == mines_from_squares:
         return True
 
@@ -95,7 +94,8 @@ def __check_if_lost(gameboard, row, column):
                     else:
                         gameboard.player_view[row][column] = 'M'
 
-                if gameboard.player_view[row][column] == 'F' and gameboard.grid_values[row][column] != 'M':
+                if (gameboard.player_view[row][column] == 'F'
+                        and gameboard.grid_values[row][column] != 'M'):
                     gameboard.player_view[row][column] = 'X'
 
         return True
@@ -147,9 +147,13 @@ def __get_square_neighbours(gameboard, row, column, visited):
 
 
 def __process_flags(gameboard, row, column):
+
     if gameboard.player_view[row][column] == 'F':
         gameboard.player_view[row][column] = '*'
         gameboard.flags = gameboard.flags+1
+        return
+
+    if gameboard.player_view[row][column] != '*':
         return
 
     if gameboard.player_view[row][column] != 'F' and gameboard.flags > 0:
