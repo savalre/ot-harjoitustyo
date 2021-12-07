@@ -11,4 +11,7 @@
 | 30.11.21 |   1  | sekvenssikaavion tekeminen, avatessa nollaruudun kaikki sen naapuritkin avataan |
 | 1.12.21 |   3  | pelaaja voi nyt merkitä miinaksi epäilemänsä ruudun lipulla. väärä syöte ei kaada peliä |
 | 3.12.21 |   2  | pelin voi voittaa ja peli ilmottaa siitä |
-| **Yhteensä** |   **20**  |  |
+| 4.12.21 |   1  | muuttujien nimien muuttomista, pylint-arvosanan korotusta |
+| 6.12.21 |   1  | voitto ja häviö-statusten muuttujien muokkaamista, testauksen suunnittelua|
+
+| **Yhteensä** |   **22**  |  |
