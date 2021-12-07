@@ -13,5 +13,5 @@
 | 3.12.21 |   2  | pelin voi voittaa ja peli ilmottaa siitä |
 | 4.12.21 |   1  | muuttujien nimien muuttomista, pylint-arvosanan korotusta |
 | 6.12.21 |   1  | voitto ja häviö-statusten muuttujien muokkaamista, testauksen suunnittelua|
-
-| **Yhteensä** |   **22**  |  |
+| 7.12.21 |   1  | sekvenssikaavion piirtäminen, releasen teko, testausongelmien ratkomista |
+| **Yhteensä** |   **23**  |  |
