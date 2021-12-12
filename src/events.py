@@ -69,11 +69,13 @@ def __check_input(gameboard, command):
 
 def __check_if_won(gameboard, row, column):
     counter = 0
-    for row in range(gameboard.dimension):
-        for column in range(gameboard.dimension):
-            if gameboard.player_view[row][column] != 'M':
-                if gameboard.player_view[row][column] != '*':
-                    if gameboard.player_view[row][column] != 'F':
+    rws = row
+    clmn = column
+    for rws in range(gameboard.dimension):
+        for clmn in range(gameboard.dimension):
+            if gameboard.player_view[rws][clmn] != 'M':
+                if gameboard.player_view[rws][clmn] != '*':
+                    if gameboard.player_view[rws][clmn] != 'F':
                         counter = counter+1
 
     mines_from_squares = (gameboard.dimension *
@@ -89,7 +91,7 @@ def __check_if_lost(gameboard, row, column):
         for row in range(gameboard.dimension):
             for column in range(gameboard.dimension):
                 if gameboard.grid_values[row][column] == 'M':
-                    if gameboard.player_view[row][column] == 'F':
+                    if gameboard.player_view[row][column] == 'F': # todo WTF =_=
                         gameboard.player_view[row][column] = 'F'
                     else:
                         gameboard.player_view[row][column] = 'M'

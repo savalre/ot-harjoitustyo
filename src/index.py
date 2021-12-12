@@ -1,10 +1,14 @@
 """ This file includes game loop and textual UI """
 
 import sys
-import pygame
+import tkinter
+import random
 from board import *
 from events import open_square
 
+#window = tkinter.Tk()
+#window.title("TkInter example")
+#window.mainloop()
 
 def select_level():
     return_value = ""
@@ -38,8 +42,39 @@ def grid_width(level):
 
     return grid
 
+def mines_count(level):
+    mines = 0
 
-if __name__ == '__main__':
+    if level == "Easy":
+        mines = 10
+
+    if level == "Medium":
+        mines = 40
+
+    if level == "Hard":
+        mines = 99
+
+    return mines
+
+def get_random_squares(mines, dimension):
+    count = 0
+
+    mine_squares = []
+
+    while count < mines:
+        num = random.randint(0, (dimension * dimension) - 1)
+
+        row = num // dimension
+        column = num % dimension
+
+        if (row,column) not in mine_squares:
+            count = count+1
+            mine_squares.append((row,column))
+
+    return mine_squares
+
+
+def main():
     print(" ")
     print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
     print(" ")
@@ -51,8 +86,10 @@ if __name__ == '__main__':
 
     if command == 1:
         level = select_level()
-        grid_width = grid_width(level)
-        gameboard = Board(level, grid_width)
+        width = grid_width(level)
+        mines = mines_count(level)
+        mines_squares = get_random_squares(mines, width)
+        gameboard = Board(mines_squares, width)
 
     end = False
 
@@ -83,3 +120,5 @@ if __name__ == '__main__':
                 print("You hit a mine! Game over!")
                 end = True
                 
+if __name__ == '__main__':
+    main()
