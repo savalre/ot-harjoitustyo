@@ -8,7 +8,8 @@ from events import open_square
 
 #window = tkinter.Tk()
 #window.title("TkInter example")
-#window.mainloop()
+# window.mainloop()
+
 
 def select_level():
     return_value = ""
@@ -42,6 +43,7 @@ def grid_width(level):
 
     return grid
 
+
 def mines_count(level):
     mines = 0
 
@@ -56,6 +58,7 @@ def mines_count(level):
 
     return mines
 
+
 def get_random_squares(mines, dimension):
     count = 0
 
@@ -67,9 +70,9 @@ def get_random_squares(mines, dimension):
         row = num // dimension
         column = num % dimension
 
-        if (row,column) not in mine_squares:
+        if (row, column) not in mine_squares:
             count = count+1
-            mine_squares.append((row,column))
+            mine_squares.append((row, column))
 
     return mine_squares
 
@@ -119,6 +122,7 @@ def main():
             else:
                 print("You hit a mine! Game over!")
                 end = True
-                
+
+
 if __name__ == '__main__':
     main()

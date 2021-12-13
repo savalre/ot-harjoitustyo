@@ -1,6 +1,5 @@
 """This file handles game events, such as flagging the mines and user commands"""
-
-import board
+# tästä poistettu import board, kokeile toimiiko edelleen
 
 
 def open_square(gameboard, command: str):
@@ -91,7 +90,7 @@ def __check_if_lost(gameboard, row, column):
         for row in range(gameboard.dimension):
             for column in range(gameboard.dimension):
                 if gameboard.grid_values[row][column] == 'M':
-                    if gameboard.player_view[row][column] == 'F': # todo WTF =_=
+                    if gameboard.player_view[row][column] == 'F':  # todo WTF is this =_=
                         gameboard.player_view[row][column] = 'F'
                     else:
                         gameboard.player_view[row][column] = 'M'
