@@ -13,7 +13,16 @@ Peliä pelataan komentorivillä. Aloitusvalikon toiminnot ovat seuraavat:
   - 2 - lopetat ohjelman suorituksen
 
 ## Pelin pelaaminen
-  
+
+Pelilaudan rivien ja sarakkeiden numerointi menee välillä 1-10. Avaa ruutu syöttämällä komentoriville koordinaatit siihen ruutun, jonka haluat avata muodossa:  
+
+  **RIVI VÄLILYÖNTI SARAKE**
+
+Jos haluat merkata lipulla miinaksi epäilemäsi ruudun, syötä liputettavan ruudun koordinaatit muodossa:
+
+**RIVI VÄLILYÖNTI SARAKE VÄLILYÖNTI F**  
+
+Peli ilmoittaa, jos syötteesi on väärä.
 
 ## Pelin lopetus
   Voit missä vaiheessa tahansa lopettaa pelin kesken ja poistua ohjelmasta näppäilemällä komentoriville käskyn "e"
