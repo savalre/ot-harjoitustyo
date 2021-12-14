@@ -2,7 +2,7 @@
 
 Sovellus on klassikkopeli Miinaharava. Miinaharavan säännöt voi tarkistaa esimerkiksi [Wikipediasta](https://fi.wikipedia.org/wiki/Miinaharava_(peli)).
 
-Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus on kurssin puitteissa tehdä myös graafinen käyttöliittymä. 
+Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus on kurssin puitteissa tehdä myös graafinen käyttöliittymä.
 
 ## Release viikko 6
 [Linkki viikon 6 releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko6)
@@ -14,7 +14,7 @@ Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus
 
 ## Sovelluksen asennus
 
-**HUOM!** Ohjelma testattu Pythonin versiolla 3.10, mutta Poetryyn asetettu arvoksi että tuetaan Pythonia 3.8 versiosta ylöspäin 
+**HUOM!** Ohjelma testattu Pythonin versiolla 3.10, mutta Poetryyn asetettu arvoksi että tuetaan Pythonia 3.8 versiosta ylöspäin
 
 1. Asenna riippuvuudet komennolla **poetry install**
 2. Alusta sovellus komennolla **poetry run invoke build**
