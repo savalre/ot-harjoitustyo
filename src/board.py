@@ -56,14 +56,16 @@ class Board:
                 if row > 0 and column > 0 and self.grid_values[row-1][column-1] == 'M':
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
-                if row < self.dimension-1 and column > 0 and self.grid_values[row+1][column-1] == 'M':
+                if (row < self.dimension-1 and column > 0
+                    and self.grid_values[row+1][column-1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
                 if (row < self.dimension-1 and column < self.dimension-1
                         and self.grid_values[row+1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
-                if row > 0 and column < self.dimension-1 and self.grid_values[row-1][column+1] == 'M':
+                if (row > 0 and column < self.dimension-1
+                    and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
 def print_board(self):
