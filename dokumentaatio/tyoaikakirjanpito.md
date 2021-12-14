@@ -17,4 +17,4 @@
 | 12.12.21 |   2  | testien tekemistä, koodin refraktorointia |
 | 14.12.21 |   2  | docstring-dokumentaatiota ja  |
 
-| **Yhteensä** |   **28**  |  |
+| **Yhteensä** |   **28**  |  
