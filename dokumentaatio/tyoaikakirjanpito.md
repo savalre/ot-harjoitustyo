@@ -14,4 +14,7 @@
 | 4.12.21 |   1  | muuttujien nimien muuttomista, pylint-arvosanan korotusta |
 | 6.12.21 |   1  | voitto ja häviö-statusten muuttujien muokkaamista, testauksen suunnittelua|
 | 7.12.21 |   1  | sekvenssikaavion piirtäminen, releasen teko, testausongelmien ratkomista |
-| **Yhteensä** |   **23**  |  |
+| 12.12.21 |   2  | testien tekemistä, koodin refraktorointia |
+| 14.12.21 |   2  | docstring-dokumentaatiota ja  |
+
+| **Yhteensä** |   **28**  |  |
