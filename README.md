@@ -7,7 +7,7 @@ Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus
 ## Release viikko 5
 [Linkki viikon 5 releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko5)
 ## Dokumentaatio
-[Arkkitehtuurikuvaus](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)
+[Arkkitehtuurikuvaus](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)  
 [Määrittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
 [Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)  
 [Luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/f14552c60e27a7fa43cfb7daf850fba0e176957d/dokumentaatio/arkkitehtuuri.md)
