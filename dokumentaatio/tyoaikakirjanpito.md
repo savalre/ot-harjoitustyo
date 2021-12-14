@@ -16,5 +16,4 @@
 | 7.12.21 |   1  | sekvenssikaavion piirtäminen, releasen teko, testausongelmien ratkomista |
 | 12.12.21 |   2  | testien tekemistä, koodin refraktorointia |
 | 14.12.21 |   2  | docstring-dokumentaatiota ja  |
-
 | **Yhteensä** |   **28**  |  
