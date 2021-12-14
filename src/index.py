@@ -12,6 +12,11 @@ from events import open_square
 
 
 def select_level():
+    """[Gives an integer value to players level choice that grid_width() uses]
+
+    Returns:
+        [integer]: [represents selected level]
+    """
     return_value = ""
 
     level = int(
@@ -30,6 +35,14 @@ def select_level():
 
 
 def grid_width(level):
+    """[this method gets level as an argument and assigns correct playboard width]
+
+    Args:
+        level ([integer]): [represents selected level]
+
+    Returns:
+        [integer]: [width of playboard]
+    """
     grid = 0
 
     if level == "Easy":
@@ -45,6 +58,14 @@ def grid_width(level):
 
 
 def mines_count(level):
+    """[this method gets level as an argument and assigns correct number of mines that level requires]
+
+    Args:
+        level ([integer]): [represents selected level]
+
+    Returns:
+        [integer]: [number of mines needed in the gameboard]
+    """
     mines = 0
 
     if level == "Easy":
@@ -60,6 +81,15 @@ def mines_count(level):
 
 
 def get_random_squares(mines, dimension):
+    """[method generates the square coordinates where in the gameboard the mines will be assigned to]
+
+    Args:
+        mines ([integer]): [number of mines needed]
+        dimension ([integer]): [width of gameboard]
+
+    Returns:
+        [list]: [contains tuples of (row,column) values that the mines will be assigned to]
+    """
     count = 0
 
     mine_squares = []
@@ -78,6 +108,10 @@ def get_random_squares(mines, dimension):
 
 
 def main():
+    """
+    This is the gameloop
+    """
+
     print(" ")
     print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
     print(" ")
