@@ -4,6 +4,7 @@ Voit ladata viimeisimmän projektin releasen [täältä](https://github.com/sava
 
 ## Ohjelman asentaminen ja käynnistys
 
+Tapahtuu README-ohjeiden avulla.
 
 ## Pelin aloitus
 
