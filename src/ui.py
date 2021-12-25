@@ -23,8 +23,7 @@ class Ui():
         """
         self.gameboard = Board(level)
         pygame.init()
-        self.empty = pygame.image.load(
-            os.path.join('src/pictures', 'empty.png'))
+        self.empty = pygame.image.load(os.path.join('src/pictures', 'empty.png'))
         self.mine = pygame.image.load(os.path.join('src/pictures', 'mine.png'))
         self.flag = pygame.image.load(os.path.join('src/pictures', 'flag.png'))
         self.not_mine = pygame.image.load(
@@ -89,8 +88,17 @@ class Ui():
                         image = pygame.image.load(command)
                         image = image.convert()
                         self.screen.blit(image, (row*self.side, column*self.side))
+    
         font = pygame.font.Font(None, 25) #font size here
-        message = f"FLAGS REMANING: {self.gameboard.flags}"
+        message = ""
+
+        if self.if_solved == (True,0):
+            message = "YOU HIT A MINE! GAME OVER!"
+        elif self.if_solved == (True,1):
+            message = "WOHOO, YOU WIN!"
+        else:
+            message = f"FLAGS REMANING: {self.gameboard.flags}"
+
         text = font.render(message, True, (225,225,225))
         self.screen.blit(text,(self.text_center//len(message),self.footer_pos)) #x,y
 
@@ -134,6 +142,5 @@ class Ui():
                     pos = pygame.mouse.get_pos()
                     row = pos[0] // self.side
                     column = pos[1] // self.side
-                    self.if_solved = open_square(
-                        self.gameboard, row, column)
+                    self.if_solved = open_square(self.gameboard, row, column)
         pygame.quit()
