@@ -2,7 +2,7 @@
 
 import sys
 import os
-from ui import *
+from ui import Ui
 
 
 def clear():

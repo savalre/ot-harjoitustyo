@@ -11,6 +11,7 @@ from events import open_square, process_flags
 
 
 class Ui():
+
     """[summary]
     """
 
@@ -29,15 +30,12 @@ class Ui():
         self.not_mine = pygame.image.load(
             os.path.join('src/pictures', 'was_not.png'))
         self.side = 30
-        self.left = 1
-        self.right = 3
         self.square = -1
-        self.row = -1
-        self.column = -1
         self.grid_value = -1
         self.if_solved = (False, 1)
-        self.size = self.__get_screen_size(level)
-        self.screen = pygame.display.set_mode(self.size)
+        self.footer_pos = 0
+        self.text_center = 0
+        self.screen = pygame.display.set_mode(self.__get_screen_size(level))
         pygame.display.set_caption("Minesweeper")
 
     def __get_screen_size(self, level):
@@ -59,8 +57,43 @@ class Ui():
             for row in reader:
                 if row[0] == level:
                     size_value = int(row[3])
-        screen_size = (size_value, size_value+50)
+        screen_size = (size_value, size_value+40)
+        self.footer_pos = size_value+10
+        self.text_center = size_value//2
         return screen_size
+
+    def print_gameboard(self):
+        """[summary]
+        """
+        for row in range(len(self.gameboard.player_view)):
+            for column in range(len(self.gameboard.player_view)):
+                square = self.gameboard.player_view[row][column]
+
+                if square == 'M':
+                    self.screen.blit(
+                        self.mine, (row*self.side, column*self.side))
+
+                if square == '*':
+                    self.screen.blit(
+                        self.empty, (row*self.side, column*self.side))
+
+                elif square != 'M':
+                    if square == 'X':
+                        self.screen.blit(
+                        self.not_mine, (row*self.side, column*self.side))
+                    elif square == 'F':
+                        self.screen.blit(
+                        self.flag, (row*self.side, column*self.side))
+                    else:
+                        command = os.path.join('src/pictures', ('pict' + str(square) + '.png'))
+                        image = pygame.image.load(command)
+                        image = image.convert()
+                        self.screen.blit(image, (row*self.side, column*self.side))
+        font = pygame.font.Font(None, 25) #font size here
+        message = f"FLAGS REMANING: {self.gameboard.flags}"
+        text = font.render(message, True, (225,225,225))
+        self.screen.blit(text,(self.text_center//len(message),self.footer_pos)) #x,y
+
 
     def game_loop(self):
         """[summary]
@@ -70,62 +103,37 @@ class Ui():
         clock = pygame.time.Clock()
 
         while not end:
-            self.screen.fill((0,0,0))
+            self.screen.fill((127, 127, 127))
 
-            # tästä kans metodi, esim print board vaikka sit tänne luokkaan
-            for x in range(len(self.gameboard.player_view)):
-                for y in range(len(self.gameboard.player_view)):
-                    square = self.gameboard.player_view[x][y]
-
-                    if square == 'M':
-                        self.screen.blit(self.mine, (x*self.side, y*self.side))
-
-                    if square == '*':
-                        self.screen.blit(self.empty, (x*self.side, y*self.side))
-
-                    elif square != 'M':
-
-                        if square == 'X':
-                            self.screen.blit(
-                                self.not_mine, (x*self.side, y*self.side))
-                        elif square == 'F':
-                            self.screen.blit(
-                                self.flag, (x*self.side, y*self.side))
-                        else:
-                            command=os.path.join(
-                                'src/pictures', ('pict' + str(square) + '.png'))
-                            image=pygame.image.load(command)
-                            image=image.convert()
-                            self.screen.blit(image, (x*self.side, y*self.side))
-
-            clock.tick(60)
+            self.print_gameboard()
 
             pygame.display.flip()
 
+            clock.tick(60)
+
             if self.if_solved == (True, 1):
                 pygame.time.delay(500)
-                end=True
+                end = True
 
             if self.if_solved == (True, 0):
                 pygame.time.delay(500)
-                end=True
+                end = True
 
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    end=True
+                    end = True
 
-                if event.type == pygame.MOUSEBUTTONDOWN and event.button == self.right:
-                    pos=pygame.mouse.get_pos()
-                    self.row=pos[0] // self.side
-                    self.column=pos[1] // self.side
-                    process_flags(self.gameboard, self.row, self.column)
+                if event.type == pygame.MOUSEBUTTONDOWN and event.button == 3:
+                    pos = pygame.mouse.get_pos()
+                    row = pos[0] // self.side
+                    column = pos[1] // self.side
+                    process_flags(self.gameboard, row, column)
                     pygame.display.update()
 
-                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == self.left:
-                    pos=pygame.mouse.get_pos()
-                    self.row=pos[0] // self.side
-                    self.column=pos[1] // self.side
-                    self.if_solved=open_square(
-                        self.gameboard, self.row, self.column)
-
+                elif event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
+                    pos = pygame.mouse.get_pos()
+                    row = pos[0] // self.side
+                    column = pos[1] // self.side
+                    self.if_solved = open_square(
+                        self.gameboard, row, column)
         pygame.quit()
