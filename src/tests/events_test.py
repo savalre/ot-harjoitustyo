@@ -68,21 +68,21 @@ class TestEvents(unittest.TestCase):
         self.assertEqual(self.board.player_view[0][0], 1)
 
 
-""" def test_opening_zero_square_opens_neighbours(self):
-        events.open_square(self.board, "10 7") """
+    """ def test_opening_zero_square_opens_neighbours(self):
+            events.open_square(self.board, "10 7") """
 
-""" def test_opening_non_mine_squares_ends_game_as_win(self): ei toimi jee
+    def test_opening_non_mine_squares_ends_game_as_win(self): 
 
-        for row in range(self.board.dimension):
-            for column in range(self.board.dimension):    
-                if row == 0 and column == 0:
-                    continue
-                if self.board.grid_values[row][column] == 'M':
-                    continue
-                
-                command = str(row+1) + " " + str(row+1)
-                events.open_square(self.board, command)
+            for row in range(self.board.dimension):
+                for column in range(self.board.dimension):    
+                    if row == 0 and column == 0:
+                        continue
+                    if self.board.grid_values[row][column] == 'M':
+                        continue
+                    
+                    command = str(row+1) + " " + str(column+1)
+                    events.open_square(self.board, command)
 
-        open_last_square = events.open_square(self.board,"1 1") #pitäisi tarkistaa voitto tässä välissä :D
-        print(open_last_square)
-        self.assertEqual(open_last_square, (True,1)) """
+            open_last_square = events.open_square(self.board,"1 1")
+            print(open_last_square)
+            self.assertEqual(open_last_square, (True,1))
