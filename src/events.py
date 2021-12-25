@@ -16,8 +16,8 @@ def open_square(gameboard, row: int, column: int):
     """
 
     if gameboard.player_view[row][column] == 'F':
-        return (False,0)
-        
+        return (False, 0)
+
     grid_value = gameboard.grid_values[row][column]
     gameboard.player_view[row][column] = grid_value
 
@@ -83,17 +83,17 @@ def __check_if_lost(gameboard, row, column):
         [boolean]: [returns true if the game is lost, otherwise false]
     """
     if gameboard.grid_values[row][column] == 'M':
-        for row in range(gameboard.dimension):
-            for column in range(gameboard.dimension):
-                if gameboard.grid_values[row][column] == 'M':
-                    if gameboard.player_view[row][column] == 'F':
-                        gameboard.player_view[row][column] = 'F'
+        for rw in range(gameboard.dimension):
+            for clmn in range(gameboard.dimension):
+                if gameboard.grid_values[rw][clmn] == 'M':
+                    if gameboard.player_view[rw][clmn] == 'F':
+                        gameboard.player_view[rw][clmn] = 'F'
                     else:
-                        gameboard.player_view[row][column] = 'M'
+                        gameboard.player_view[rw][clmn] = 'M'
 
-                if (gameboard.player_view[row][column] == 'F'
-                        and gameboard.grid_values[row][column] != 'M'):
-                    gameboard.player_view[row][column] = 'X'
+                if (gameboard.player_view[rw][clmn] == 'F'
+                        and gameboard.grid_values[rw][clmn] != 'M'):
+                    gameboard.player_view[rw][clmn] = 'X'
 
         return True
 
@@ -161,7 +161,7 @@ def __get_square_neighbours(gameboard, row, column, visited):
 
 
 def process_flags(gameboard, row, column):
-    """[processes the flag inputs. If the flagged square is reflagged(or deflagged in this 
+    """[processes the flag inputs. If the flagged square is reflagged(or deflagged in this
         case), the method closes square again. If the square isn't closed, method returns
         because only closed squares can be flagged. After flagging the square the number
         of flags available is diminished by 1]

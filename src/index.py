@@ -44,7 +44,7 @@ def main():
         print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
         print(" ")
         command = int(
-            input("Press 1 if you want to play, press 2 if you want to quit \n"))
+        input("Press 1 if you want to play, press 2 if you want to quit \n"))
 
         if command == 2:
             sys.exit()

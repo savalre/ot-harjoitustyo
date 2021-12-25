@@ -99,7 +99,7 @@ class Board:
             self.grid_values[row][column] = 'M'
 
     def add_numbers_to_squares(self):
-        """[if square is not mine, method checks it's neighbours to see 
+        """[if square is not mine, method checks it's neighbours to see
             how many mines are nearby and assigns number values accordingly]
         """
         for row in range(self.dimension):
@@ -134,4 +134,3 @@ class Board:
                 if (row > 0 and column < self.dimension-1
                         and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
-
