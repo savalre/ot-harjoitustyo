@@ -1,7 +1,7 @@
 """This file handles game events, such as flagging the mines and user commands"""
 
 
-def open_square(gameboard, command: str):
+def open_square(gameboard, row: int, column: int):
     """[checks the square that player wants to open, opens the square for player
         and checks if player loses, wins, want's to flag a square or if
         game continues]
@@ -14,76 +14,30 @@ def open_square(gameboard, command: str):
         [boolean]: [Returns tuple (False, 0) if game continues,
         (True, 1) if player wins with this move and (True,0) if player loses with this move]
     """
+    grid_value = gameboard.grid_values[row][column]
+    gameboard.player_view[row][column] = grid_value
 
-    square = __check_input(gameboard, command)
-
-    if square is False:
-        print("Wrong input! Try again!\n")
+    if gameboard.player_view[row][column] == 'F':
         return (False, 0)
 
-    else:
+    gameboard.player_view[row][column] = gameboard.grid_values[row][column]
 
-        row = int(square[0])-1
-        column = int(square[1])-1
+    check_win = __check_if_won(gameboard, row, column)
 
-        if len(square) == 3 and square[2] == 'F':
-            __process_flags(gameboard, row, column)
-            return (False, 0)
+    if check_win is True:
+        return (True, 1)
 
-        if gameboard.player_view[row][column] == 'F':
-            return (False, 0)
+    game_over = __check_if_lost(gameboard, row, column)
 
-        gameboard.player_view[row][column] = gameboard.grid_values[row][column]
+    if game_over is True:
+        return (True, 0)
 
-        check_win = __check_if_won(gameboard, row, column)
+    if game_over is False and gameboard.grid_values[row][column] == 0:
+        __open_all_zero_squares(gameboard, row, column)
+        return(False, 0)
 
-        if check_win is True:
-            return (True, 1)
-
-        game_over = __check_if_lost(gameboard, row, column)
-
-        if game_over is True:
-            return (True, 0)
-
-        if game_over is False and gameboard.grid_values[row][column] == 0:
-            __open_all_zero_squares(gameboard, row, column)
-            return(False, 0)
-
-        if check_win is False:
-            return(False, 0)
-
-
-def __check_input(gameboard, command):
-    """[checks if input is valid]
-
-    Args:
-        gameboard ([board]): [board object that is used in the current game]
-        command ([string]): [input that user typed in commandline]
-
-    Returns:
-        [boolean]: [returns False if the input is invalid]
-        [string]: [if input is valid, it returns the input]
-    """
-    command.strip()
-
-    square = command.split()
-
-    if not square[0].isnumeric():
-        return False
-
-    if len(square) > 3 or len(square) < 2:
-        return False
-
-    if len(square) == 3 and square[2] != 'F':
-        return False
-
-    if int(square[0]) > gameboard.dimension or int(square[0]) < 1:
-        return False
-
-    if int(square[1]) > gameboard.dimension or int(square[1]) < 1:
-        return False
-
-    return square
+    if check_win is False:
+        return(False, 0)
 
 
 def __check_if_won(gameboard, row, column):

@@ -2,13 +2,12 @@
 
 import sys
 import os
-import random
-from board import *
-from events import open_square
 from ui import *
 
+
 def clear():
-    os.system("clear")      
+    os.system("clear")
+
 
 def select_level():
     """[Gives an integer value to players level choice that grid_width() uses]
@@ -32,6 +31,7 @@ def select_level():
 
     return return_value
 
+
 def main():
     """
     This is the gameloop
@@ -53,41 +53,9 @@ def main():
             clear()
             level = select_level()
 
-
-
         game = Ui(level)
         game.game_loop()
 
-  
-    """
-        while not end:
-            print(" ")
-            for x in gameboard.player_view:
-                for y in x:
-                    print(y, end=" ")
-                print()
-
-            print("Open a square by typing row number SPACE column number (e.g. 1 2)\n")
-            print("Flag a mine by typing F after row and column number (e.g. 1 2 F)\n")
-            print("Unflag a mine by flagging a square again.\n")
-            print(f"You have {gameboard.flags} flags left")
-            command = input("Exit by typing e\n")
-
-            if command == "e":
-                sys.exit()
-
-            check_game_status = open_square(gameboard, command)
-
-            if check_game_status[0] is True:
-                print_board(gameboard)
-                if check_game_status[1] == 1:
-                    print("Hihhihhii, kutittaa! Voitit pelin :)")
-                    end = True
-                else:
-                    print("Hmmm :/ Hävisit pelin!")
-                    end = True
-        clear()
-    """
 
 if __name__ == '__main__':
     main()

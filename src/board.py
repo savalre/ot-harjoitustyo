@@ -5,6 +5,7 @@ import os
 import random
 import csv
 
+
 class Board:
 
     """This class generates two boards for the game:
@@ -18,18 +19,17 @@ class Board:
             mine_squares (list): [list which has coordinates where to assign mines]
             grid_width (int): [width of gameboard]
         """
-        #luo mine_squares
         self.grid_values = []
         self.player_view = []
         self.mine_squares = []
         self.dimension = 0
-        self._create_mine_squares(level)
+        self.create_mine_squares(level)
         self.flags = len(self.mine_squares)
         self.mines = len(self.mine_squares)
-        self._create_hidden_board(self.mine_squares)
-        self._create_player_board()
+        self.create_hidden_board(self.mine_squares)
+        self.create_player_board()
 
-    def _create_hidden_board(self, mine_squares):
+    def create_hidden_board(self, mine_squares):
         """[creates the hidden gameboard with mine locations and numbers]
 
         Args:
@@ -37,16 +37,16 @@ class Board:
         """
         self.grid_values = [
             [0 for y in range(self.dimension)] for x in range(self.dimension)]
-        self._add_mines(mine_squares)
-        self._add_numbers_to_squares()
+        self.add_mines(mine_squares)
+        self.add_numbers_to_squares()
 
-    def _create_player_board(self):
+    def create_player_board(self):
         """[creates the board that is visible to the player]
         """
         self.player_view = [
             ['*' for y in range(self.dimension)] for x in range(self.dimension)]
 
-    def _create_mine_squares(self, level):
+    def create_mine_squares(self, level):
         """[method generates the square coordinates where
             in the gameboard the mines will be assigned to]
 
@@ -57,10 +57,8 @@ class Board:
         Returns:
             [list]: [contains tuples of (row,column) values that the mines will be assigned to]
         """
-        
-        mine_count = 0
 
-        #lue arvot tiedostosta noille kahdelle levelin mukaan
+        mine_count = 0
 
         dirname = os.path.dirname(__file__)
         file_path = os.path.join(dirname, "specs.csv")
@@ -87,7 +85,7 @@ class Board:
 
         return self.mine_squares
 
-    def _add_mines(self, mine_squares):
+    def add_mines(self, mine_squares):
         """[adds mines to hidden board]
 
         Args:
@@ -100,7 +98,7 @@ class Board:
 
             self.grid_values[row][column] = 'M'
 
-    def _add_numbers_to_squares(self):
+    def add_numbers_to_squares(self):
         """[if square is not mine, method checks it's neighbours to see 
             how many mines are nearby and assigns number values accordingly]
         """
@@ -137,7 +135,9 @@ class Board:
                         and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
-#tulee olemaan turha mut pidä nyt vielä:D
+# tulee olemaan turha mut pidä nyt vielä:D
+
+
 def print_board(self):
     """[prints board for gameview. ]
     """
