@@ -1,15 +1,14 @@
 """ This file includes game loop and textual UI """
 
 import sys
-import tkinter
+import os
 import random
 from board import *
 from events import open_square
+from ui import *
 
-#window = tkinter.Tk()
-#window.title("TkInter example")
-# window.mainloop()
-
+def clear():
+    os.system("clear")      
 
 def select_level():
     """[Gives an integer value to players level choice that grid_width() uses]
@@ -33,130 +32,62 @@ def select_level():
 
     return return_value
 
-
-def grid_width(level):
-    """[this method gets level as an argument and assigns correct playboard width]
-
-    Args:
-        level ([integer]): [represents selected level]
-
-    Returns:
-        [integer]: [width of playboard]
-    """
-    grid = 0
-
-    if level == "Easy":
-        grid = 10
-
-    if level == "Medium":
-        grid = 16
-
-    if level == "Hard":
-        grid = 30
-
-    return grid
-
-
-def mines_count(level):
-    """[this method gets level as an argument and assigns correct number of mines that level requires]
-
-    Args:
-        level ([integer]): [represents selected level]
-
-    Returns:
-        [integer]: [number of mines needed in the gameboard]
-    """
-    mines = 0
-
-    if level == "Easy":
-        mines = 10
-
-    if level == "Medium":
-        mines = 40
-
-    if level == "Hard":
-        mines = 99
-
-    return mines
-
-
-def get_random_squares(mines, dimension):
-    """[method generates the square coordinates where in the gameboard the mines will be assigned to]
-
-    Args:
-        mines ([integer]): [number of mines needed]
-        dimension ([integer]): [width of gameboard]
-
-    Returns:
-        [list]: [contains tuples of (row,column) values that the mines will be assigned to]
-    """
-    count = 0
-
-    mine_squares = []
-
-    while count < mines:
-        num = random.randint(0, (dimension * dimension) - 1)
-
-        row = num // dimension
-        column = num % dimension
-
-        if (row, column) not in mine_squares:
-            count = count+1
-            mine_squares.append((row, column))
-
-    return mine_squares
-
-
 def main():
     """
     This is the gameloop
     """
+    game_off = False
 
-    print(" ")
-    print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
-    print(" ")
-    command = int(
-        input("Press 1 if you want to play, press 2 if you want to quit \n"))
-
-    if command == 2:
-        sys.exit()
-
-    if command == 1:
-        level = select_level()
-        width = grid_width(level)
-        mines = mines_count(level)
-        mines_squares = get_random_squares(mines, width)
-        gameboard = Board(mines_squares, width)
-
-    end = False
-
-    while not end:
+    while not game_off:
+        clear()
         print(" ")
-        for x in gameboard.player_view:
-            for y in x:
-                print(y, end=" ")
-            print()
+        print("Welcome to Minesweeper!\nPlease choose what you want to do!\n")
+        print(" ")
+        command = int(
+            input("Press 1 if you want to play, press 2 if you want to quit \n"))
 
-        print("Open a square by typing row number SPACE column number (e.g. 1 2)\n")
-        print("Flag a mine by typing F after row and column number (e.g. 1 2 F)\n")
-        print("Unflag a mine by flagging a square again.\n")
-        print(f"You have {gameboard.flags} flags left")
-        command = input("Exit by typing e\n")
-
-        if command == "e":
+        if command == 2:
             sys.exit()
 
-        check_game_status = open_square(gameboard, command)
+        if command == 1:
+            clear()
+            level = select_level()
 
-        if check_game_status[0] is True:
-            print_board(gameboard)
-            if check_game_status[1] == 1:
-                print("YOU WON! CONGRATULATIONS!")
-                end = True
-            else:
-                print("You hit a mine! Game over!")
-                end = True
 
+
+        game = Ui(level)
+        game.game_loop()
+
+  
+    """
+        while not end:
+            print(" ")
+            for x in gameboard.player_view:
+                for y in x:
+                    print(y, end=" ")
+                print()
+
+            print("Open a square by typing row number SPACE column number (e.g. 1 2)\n")
+            print("Flag a mine by typing F after row and column number (e.g. 1 2 F)\n")
+            print("Unflag a mine by flagging a square again.\n")
+            print(f"You have {gameboard.flags} flags left")
+            command = input("Exit by typing e\n")
+
+            if command == "e":
+                sys.exit()
+
+            check_game_status = open_square(gameboard, command)
+
+            if check_game_status[0] is True:
+                print_board(gameboard)
+                if check_game_status[1] == 1:
+                    print("Hihhihhii, kutittaa! Voitit pelin :)")
+                    end = True
+                else:
+                    print("Hmmm :/ Hävisit pelin!")
+                    end = True
+        clear()
+    """
 
 if __name__ == '__main__':
     main()

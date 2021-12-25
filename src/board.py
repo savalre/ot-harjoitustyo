@@ -1,6 +1,9 @@
 """[This file includes the board generating methods]
     """
 
+import os
+import random
+import csv
 
 class Board:
 
@@ -8,19 +11,22 @@ class Board:
         one with actual values and one that is shown to the player
     """
 
-    def __init__(self, mine_squares: list, grid_width: int):
+    def __init__(self, level: str):
         """[Constructor for Board class, creates new gameboard]
 
         Args:
             mine_squares (list): [list which has coordinates where to assign mines]
             grid_width (int): [width of gameboard]
         """
-        self.flags = len(mine_squares)
-        self.mines = len(mine_squares)
-        self.dimension = grid_width
+        #luo mine_squares
         self.grid_values = []
         self.player_view = []
-        self._create_hidden_board(mine_squares)
+        self.mine_squares = []
+        self.dimension = 0
+        self._create_mine_squares(level)
+        self.flags = len(self.mine_squares)
+        self.mines = len(self.mine_squares)
+        self._create_hidden_board(self.mine_squares)
         self._create_player_board()
 
     def _create_hidden_board(self, mine_squares):
@@ -39,6 +45,47 @@ class Board:
         """
         self.player_view = [
             ['*' for y in range(self.dimension)] for x in range(self.dimension)]
+
+    def _create_mine_squares(self, level):
+        """[method generates the square coordinates where
+            in the gameboard the mines will be assigned to]
+
+        Args:
+            mines ([integer]): [number of mines needed]
+            dimension ([integer]): [width of gameboard]
+
+        Returns:
+            [list]: [contains tuples of (row,column) values that the mines will be assigned to]
+        """
+        
+        mine_count = 0
+
+        #lue arvot tiedostosta noille kahdelle levelin mukaan
+
+        dirname = os.path.dirname(__file__)
+        file_path = os.path.join(dirname, "specs.csv")
+
+        with open(file_path) as file:
+            reader = csv.reader(file)
+            for row in reader:
+                if row[0] == level:
+                    self.dimension = int(row[1])
+                    mine_count = int(row[2])
+                    break
+
+        count = 0
+
+        while count < mine_count:
+            num = random.randint(0, (self.dimension * self.dimension) - 1)
+
+            row = num // self.dimension
+            column = num % self.dimension
+
+            if (row, column) not in self.mine_squares:
+                count = count+1
+                self.mine_squares.append((row, column))
+
+        return self.mine_squares
 
     def _add_mines(self, mine_squares):
         """[adds mines to hidden board]
@@ -90,7 +137,7 @@ class Board:
                         and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
-
+#tulee olemaan turha mut pidä nyt vielä:D
 def print_board(self):
     """[prints board for gameview. ]
     """
