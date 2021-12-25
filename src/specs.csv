@@ -1,3 +1,4 @@
+"Level","Grid width", "Number of mines", "Screen size"
 "Easy",10,10,300
 "Medium",16,40,480
 "Hard",24,144,720
