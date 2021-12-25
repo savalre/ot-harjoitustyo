@@ -14,11 +14,12 @@ def open_square(gameboard, row: int, column: int):
         [boolean]: [Returns tuple (False, 0) if game continues,
         (True, 1) if player wins with this move and (True,0) if player loses with this move]
     """
-    grid_value = gameboard.grid_values[row][column]
-    gameboard.player_view[row][column] = grid_value
 
     if gameboard.player_view[row][column] == 'F':
-        return (False, 0)
+        return (False,0)
+        
+    grid_value = gameboard.grid_values[row][column]
+    gameboard.player_view[row][column] = grid_value
 
     gameboard.player_view[row][column] = gameboard.grid_values[row][column]
 
@@ -159,7 +160,7 @@ def __get_square_neighbours(gameboard, row, column, visited):
             gameboard.player_view[row][column] = gameboard.grid_values[row][column]
 
 
-def __process_flags(gameboard, row, column):
+def process_flags(gameboard, row, column):
     """[processes the flag inputs. If the flagged square is reflagged(or deflagged in this 
         case), the method closes square again. If the square isn't closed, method returns
         because only closed squares can be flagged. After flagging the square the number

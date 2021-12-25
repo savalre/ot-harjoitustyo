@@ -2,7 +2,7 @@ import os
 import csv
 import pygame
 from board import Board
-from events import open_square
+from events import open_square, process_flags
 
 
 class Ui():
@@ -20,12 +20,11 @@ class Ui():
         self.left = 1
         self.right = 3
         self.black = 0, 0, 0
-        self.mouse_click = ""
         self.square = -1
         self.row = -1
         self.column = -1
         self.grid_value = -1
-        self.if_solved = (False,1)
+        self.if_solved = (False, 1)
         self.size = self.__get_screen_size(level)
         self.screen = pygame.display.set_mode(self.size)
         pygame.display.set_caption("Minesweeper")
@@ -44,7 +43,6 @@ class Ui():
         screen_size = (size_value, size_value+50)
         return screen_size
 
-
     def game_loop(self):
 
         end = False
@@ -59,9 +57,6 @@ class Ui():
                 for y in range(len(self.gameboard.player_view)):
                     square = self.gameboard.player_view[x][y]
 
-                    if self.mouse_click == 'right':
-                        self.screen.blit(self.flag, (x*30, y*30))
-
                     if square == 'M':
                         self.screen.blit(self.mine, (x*30, y*30))
 
@@ -69,11 +64,17 @@ class Ui():
                         self.screen.blit(self.empty, (x*30, y*30))
 
                     elif square != 'M':
-                        command = os.path.join(
-                            'src/pictures', ('pict' + str(square) + '.png'))
-                        image = pygame.image.load(command)
-                        image = image.convert()
-                        self.screen.blit(image, (x*30, y*30))
+
+                        if square == 'X':
+                            self.screen.blit(self.not_mine, (x*30, y*30))
+                        elif square == 'F':
+                            self.screen.blit(self.flag, (x*30, y*30))
+                        else:
+                            command = os.path.join(
+                                'src/pictures', ('pict' + str(square) + '.png'))
+                            image = pygame.image.load(command)
+                            image = image.convert()
+                            self.screen.blit(image, (x*30, y*30))
 
             clock.tick(60)
 
@@ -82,7 +83,7 @@ class Ui():
             if self.if_solved == (True, 1):
                 pygame.time.delay(500)
                 end = True
-                    
+
             if self.if_solved == (True, 0):
                 pygame.time.delay(500)
                 end = True
@@ -92,20 +93,21 @@ class Ui():
                     end = True
 
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == self.right:
-                    self.mouse_click = 'right'
                     pos = pygame.mouse.get_pos()
                     self.row = pos[0] // self.width
                     self.column = pos[1] // self.height
-                    open_square(self.gameboard, self.row, self.column)
+                    print(
+                        f"sq bfr flag {self.gameboard.player_view[self.row][self.column]}")
+                    process_flags(self.gameboard, self.row, self.column)
+                    print(
+                        f"sq after flag {self.gameboard.player_view[self.row][self.column]}")
+                    pygame.display.update()
 
                 elif event.type == pygame.MOUSEBUTTONDOWN and event.button == self.left:
-                    self.mouse_click = 'left'
                     pos = pygame.mouse.get_pos()
                     self.row = pos[0] // self.width
                     self.column = pos[1] // self.height
                     self.if_solved = open_square(
                         self.gameboard, self.row, self.column)
 
-
         pygame.quit()
-

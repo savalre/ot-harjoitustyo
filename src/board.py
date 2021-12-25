@@ -135,13 +135,3 @@ class Board:
                         and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
-# tulee olemaan turha mut pidä nyt vielä:D
-
-
-def print_board(self):
-    """[prints board for gameview. ]
-    """
-    for row in self.player_view:
-        for square in row:
-            print(square, end=" ")
-        print()

@@ -67,9 +67,16 @@ class TestEvents(unittest.TestCase):
 
         self.assertEqual(self.board.player_view[0][0], 1)
 
+ """def print_board(self): tää on täällä kun voi tulostella sit näkymiä
+ 
+        for row in self.player_view:
+            for square in row:
+                print(square, end=" ")
+            print()
 
-    """ def test_opening_zero_square_opens_neighbours(self):
-            events.open_square(self.board, "10 7") """
+
+    def test_opening_zero_square_opens_neighbours(self):
+            events.open_square(self.board, "10 7")""" 
 
     def test_opening_non_mine_squares_ends_game_as_win(self): 
 
