@@ -42,7 +42,7 @@ class Board:
         mine_count = 0
 
         dirname = os.path.dirname(__file__)
-        file_path = os.path.join(dirname, "specs.csv")
+        file_path = os.path.join(dirname,"data", "specs.csv")
 
         with open(file_path, encoding = 'UTF_8') as file:
             reader = csv.reader(file)
