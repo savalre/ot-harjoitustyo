@@ -3,7 +3,7 @@
 Sovellus on klassikkopeli Miinaharava. Miinaharavan säännöt voi tarkistaa esimerkiksi [Wikipediasta](https://fi.wikipedia.org/wiki/Miinaharava_(peli)).
 
 ## Final release
-[Linkki viikon 6 releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko6)
+[Linkki final releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/finalrelease)
 ## Dokumentaatio
 [Arkkitehtuurikuvaus](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)  
 [Käyttöohje](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)  
