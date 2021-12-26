@@ -64,3 +64,5 @@ class TestBoard(unittest.TestCase):
 
         self.assertEqual(self.gameboard.mines, mine_count)
 
+    def test_grid_dimension_read_right_from_file(self):
+        self.assertEqual(self.gameboard.dimension,10)

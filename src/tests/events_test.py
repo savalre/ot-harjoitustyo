@@ -69,6 +69,13 @@ class TestEvents(unittest.TestCase):
 
         self.assertEqual(square_value, "*")
 
+    def test_flagged_square_cant_be_opened(self):
+        events.process_flags(self.gameboard,7,2)
+
+        return_value = events.open_square(self.gameboard, 7, 2)
+
+        self.assertEqual(return_value, (False,0))
+
     def test_open_square_cant_be_flagged(self):
         events.open_square(self.gameboard, 0, 0)
 
