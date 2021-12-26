@@ -15,5 +15,11 @@
 | 6.12.21 |   1  | voitto ja häviö-statusten muuttujien muokkaamista, testauksen suunnittelua|
 | 7.12.21 |   1  | sekvenssikaavion piirtäminen, releasen teko, testausongelmien ratkomista |
 | 12.12.21 |   2  | testien tekemistä, koodin refraktorointia |
-| 14.12.21 |   3  | docstring-dokumentaatiota ja  repositorion päivitystä|
-| **Yhteensä** |   **29**  |  
+| 14.12.21 |   3  | docstring-dokumentaatiota ja  repositorion päivitystä| 
+| 20.12.21 |   2  | graafisen käyttöliittymän suunnittelua, pygameen tutustumista| 
+| 21.12.21 |   3  | graafisen käyttöliittymän toteutuksen ongelmien ratkomista, gui-luokan luonti|
+| 22.12.21 |   3  | gui-luokan tekemistä, kuvien muokkaamista|
+| 23.12.21 |   4  | gui-luokan valmistuminen, integrointi eventsin ja boardin kanssa|
+| 25.12.21 |   3  | ohjelman testausta linuxilla, eventsin ja boardin refaktorointia|
+| 26.12.21 |   5  | docstring-dokumentaatiota, repositorion siistimistä, testien refaktorointia|
+| **Yhteensä** |   **49**  |  
