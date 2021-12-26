@@ -1,4 +1,4 @@
-""" This file includes game loop and textual UI """
+""" This file includes initializing the game, and textual UI """
 
 import sys
 import os

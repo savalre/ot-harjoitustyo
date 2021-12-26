@@ -1,8 +1,5 @@
-"""[summary]
+"""This file handles creating and updating GUI of the game"""
 
-    Returns:
-        [type]: [description]
-    """
 import os
 import pygame
 from board import Board
@@ -11,14 +8,15 @@ from events import open_square, process_flags
 
 class GUI():
 
-    """[summary]
+    """[This class handles the drawing of GUI, updating the view in accordance with players mouse
+        events. It also contains gameloop for the game]
     """
 
     def __init__(self, level: str):
-        """[summary]
+        """[Constructor for GUI class, creates a new pygame object]
 
         Args:
-            level (str): [description]
+            level (str): [game level that the player chose at the textual ui]
         """
         self.gameboard = Board(level)
         pygame.init()
@@ -35,14 +33,13 @@ class GUI():
         pygame.display.set_caption("Minesweeper")
 
     def __get_screen_size(self):
-        """[summary]
-
-        Args:
-            level ([type]): [description]
+        """[Calculates screen size needed for specific levels]
+]
 
         Returns:
-            [type]: [description]
+          screen_size  [integer]: [contains a tuple with measurements for the gui window]
         """
+
         size_value = self.side * self.gameboard.dimension
         screen_size = (size_value, size_value+40)
         self.footer_pos = size_value+10
@@ -50,7 +47,9 @@ class GUI():
         return screen_size
 
     def print_gameboard(self):
-        """[summary]
+        """[This method creates a GUI for the game. It reads values from the board that
+            player sees, and draws the gui window accordingly. It also sets text at the bottom
+            of the screen according to game status]
         """
         for row in range(len(self.gameboard.player_view)):
             for column in range(len(self.gameboard.player_view)):
@@ -88,11 +87,13 @@ class GUI():
             message = f"FLAGS REMANING: {self.gameboard.flags}"
 
         text = font.render(message, True, (225,225,225))
-        self.screen.blit(text,(self.text_center//len(message),self.footer_pos)) #x,y
+        self.screen.blit(text,(self.text_center//len(message),self.footer_pos))
 
 
     def game_loop(self):
-        """[summary]
+        """[This is graphical game loop. It calls print_gameboard() that shows the board.
+            Then it checks if the game is lost or won. If not, it handles the mouse clicks
+            and calls for methods that operate on square values]
         """
         end = False
         pygame.display.update()
