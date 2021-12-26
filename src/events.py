@@ -1,18 +1,19 @@
-"""This file handles game events, such as flagging the mines and user commands"""
+"""This file handles game events, such as flagging the mines and how user commands
+affect values of the players gameboard"""
 
 
 def open_square(gameboard, row: int, column: int):
     """[checks the square that player wants to open, opens the square for player
-        and checks if player loses, wins, want's to flag a square or if
-        game continues]
+        and checks if player loses, wins, or nothing happens (== game continues)]
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        command (str): [description]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
 
     Returns:
         [boolean]: [Returns tuple (False, 0) if game continues,
-        (True, 1) if player wins with this move and (True,0) if player loses with this move]
+        (True, 1) if player wins with this move or (True,0) if player loses with this move]
     """
 
     if gameboard.player_view[row][column] == 'F':
@@ -20,8 +21,6 @@ def open_square(gameboard, row: int, column: int):
 
     grid_value = gameboard.grid_values[row][column]
     gameboard.player_view[row][column] = grid_value
-
-    gameboard.player_view[row][column] = gameboard.grid_values[row][column]
 
     check_win = __check_if_won(gameboard, row, column)
 
@@ -47,8 +46,8 @@ def __check_if_won(gameboard, row, column):
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [represents in which row the processed square is]
-        column ([integer]): [represents in which column the processed square is]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
 
     Returns:
         [boolean]: [returns True if game is won, False if not]
@@ -76,8 +75,8 @@ def __check_if_lost(gameboard, row, column):
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [represents in which row the processed square is]
-        column ([integer]): [represents in which column the processed square is]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
 
     Returns:
         [boolean]: [returns true if the game is lost, otherwise false]
@@ -106,8 +105,8 @@ def __open_all_zero_squares(gameboard, row, column):
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [represents in which row the processed square is]
-        column ([integer]): [represents in which column the processed square is]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
     """
     visited = []
 
@@ -116,12 +115,12 @@ def __open_all_zero_squares(gameboard, row, column):
 
 def __get_square_neighbours(gameboard, row, column, visited):
     """[sets square value to zero, logs that we have visited the square, then recursively
-        checks the squares neighbours and opens them until no more 0 squares are met]
+        checks the neighbouring squares, and opens them until no more 0 squares are met]
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [represents in which row the processed square is]
-        column ([integer]): [represents in which column the processed square is]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
         visited ([type]): [list that logs which squares are already visited]
     """
 
@@ -161,15 +160,16 @@ def __get_square_neighbours(gameboard, row, column, visited):
 
 
 def process_flags(gameboard, row, column):
-    """[processes the flag inputs. If the flagged square is reflagged(or deflagged in this
+    """[processes the flagging clicks (ie right click).
+        If the flagged square is reflagged (or deflagged in this
         case), the method closes square again. If the square isn't closed, method returns
         because only closed squares can be flagged. After flagging the square the number
         of flags available is diminished by 1]
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [represents in which row the processed square is]
-        column ([integer]): [represents in which column the processed square is]
+        row ([integer]): [row number of the gameboard]
+        column ([integer]): [column number of the gameboard]
     """
 
     if gameboard.player_view[row][column] == 'F':

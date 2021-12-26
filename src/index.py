@@ -2,18 +2,20 @@
 
 import sys
 import os
-from ui import Ui
+from gui import GUI
 
 
 def clear():
+    """[clears terminal window so the game looks cleaner]
+    """
     os.system("clear")
 
 
 def select_level():
-    """[Gives an integer value to players level choice that grid_width() uses]
+    """[Assigns a string value to players level of choice]
 
     Returns:
-        [integer]: [represents selected level]
+        [string]: [represents selected level]
     """
     return_value = ""
 
@@ -21,7 +23,7 @@ def select_level():
 
         try:
             level = int(input("Choose level by typing number:\n1 Easy\n2 Medium\n3 Hard\n"))
-        
+
             if level in (1,2,3):
                 if level == 1:
                     return_value = "Easy"
@@ -40,7 +42,9 @@ def select_level():
 
 def main():
     """
-    This is the gameloop
+    This is textual game loop, that lets player choose level and then creates a
+    new UI object that creates the gameboard. Then main() launches the game_loop in
+    GUI class
     """
     game_off = False
 
@@ -57,16 +61,15 @@ def main():
                     break
             except ValueError:
                 print("Wrong input, try again")
-        
+
         if command == 2:
             sys.exit()
 
         if command == 1:
             clear()
             level = select_level()
-       
 
-        game = Ui(level)
+        game = GUI(level)
         game.game_loop()
 
 

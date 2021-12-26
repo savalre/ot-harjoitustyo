@@ -1,5 +1,4 @@
-"""[This file includes the board generating methods]
-    """
+"""[This file includes the board generating methods]"""
 
 import os
 import random
@@ -16,8 +15,7 @@ class Board:
         """[Constructor for Board class, creates new gameboard]
 
         Args:
-            mine_squares (list): [list which has coordinates where to assign mines]
-            grid_width (int): [width of gameboard]
+            level (string): [represents the chosen level of the game]
         """
         self.grid_values = []
         self.player_view = []
@@ -28,23 +26,6 @@ class Board:
         self.mines = len(self.mine_squares)
         self.create_hidden_board(self.mine_squares)
         self.create_player_board()
-
-    def create_hidden_board(self, mine_squares):
-        """[creates the hidden gameboard with mine locations and numbers]
-
-        Args:
-            mine_squares ([list]): [list which has coordinates where to assign mines]
-        """
-        self.grid_values = [
-            [0 for y in range(self.dimension)] for x in range(self.dimension)]
-        self.add_mines(mine_squares)
-        self.add_numbers_to_squares()
-
-    def create_player_board(self):
-        """[creates the board that is visible to the player]
-        """
-        self.player_view = [
-            ['*' for y in range(self.dimension)] for x in range(self.dimension)]
 
     def create_mine_squares(self, level):
         """[method generates the square coordinates where
@@ -98,6 +79,17 @@ class Board:
 
             self.grid_values[row][column] = 'M'
 
+    def create_hidden_board(self, mine_squares):
+        """[creates the hidden gameboard with mine locations and numbers]
+
+            Args:
+                mine_squares ([list]): [list which has coordinates where to assign mines]
+            """
+        self.grid_values = [[0 for y in range(self.dimension)]
+                            for x in range(self.dimension)]
+        self.add_mines(mine_squares)
+        self.add_numbers_to_squares()
+
     def add_numbers_to_squares(self):
         """[if square is not mine, method checks it's neighbours to see
             how many mines are nearby and assigns number values accordingly]
@@ -134,3 +126,10 @@ class Board:
                 if (row > 0 and column < self.dimension-1
                         and self.grid_values[row-1][column+1] == 'M'):
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
+
+    def create_player_board(self):
+        """[creates the board that is visible to the player, 
+        and is updated with values from opened squares throughout the game]
+        """
+        self.player_view = [
+            ['*' for y in range(self.dimension)] for x in range(self.dimension)]
