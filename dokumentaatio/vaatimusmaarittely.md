@@ -2,47 +2,47 @@
 
 ## Sovelluksen tarkoitus
 
-Sovellus on miinaharava-peli. Käyttäjä pelaa ruudukossa, jossa ensin kaikki ruudut ovat yksivärisiä. Käyttäjä "klikkaa auki" 
+Sovellus on miinaharavapeli. Käyttäjä pelaa ruudukossa, jossa ensin kaikki ruudut ovat yksivärisiä. Käyttäjä "klikkaa auki" 
 ruutuja yksi kerrallaan, jolloin ruudusta paljastuu numero 1-8 välillä. Numero kertoo käyttäjälle, kuinka monta miinaa avatun ruudun ympärillä on. Jos klikatun
 ruudun ympärillä on paljon tyhjiä ruutuja, avaa peli useamman ruudun alueen käyttäjän puolesta. Käyttäjä voi merkitä hiiren oikealla klikkauksella ruudun miinaksi.
-Miinoja voi merkata vain rajatun määrän. Peli loppuu, kun käyttäjä joko räjäyttää miinan (häviö, tailöytää kaikki miinat merkkattuaan ne sisältämät ruudut
-lipulla ja avattuaan kaikki turvalliset ruudut. Pelissä on ajastin, jonka tuloksen voi tallentaa ennätystauluun, jos peli voitetaan.
+Miinoja voi merkata vain rajatun määrän. Peli loppuu, kun käyttäjä joko räjäyttää miinan (häviö), tai löytää kaikki miinat merkkattuaan ne sisältämät ruudut
+lipulla ja avaa kaikki turvalliset ruudut.
 
-Peli toimii tällä hetkellä komentorivillä, tarkoitus tehdä graafinen käyttöliittymä myöhemmin kurssin aikana.
+Pelin alustus suoritetaan komentorivillä, mutta itse peli pelataan graafisella käyttöliittymällä.
 
-## Suunnitellut toiminnallisuudet
+## Toiminnallisuudet 
 
 ### Ennen pelin alkua
 - Käyttäjä voi valita vaikeustason helppo, keskivaikea tai vaikea 
-- Aloitusvalikosta löytyy ennätystaulu, joka näyttää viisi parasta tulosta
-- Käyttäjä voi tyhjentää ennätystaulun eli poistaa parhaat tulokset 
-- Käyttäjää varten luodaan uusi pelilauta, joka sisältää miinoja ja numeroita
+- Käyttäjää varten luodaan uusi pelilauta, joka sisältää miinoja, tyhjiä ruutuja (arvo 0) ja numeroita
+  - Tämän pelilaudan pohjalta luodaan uusi graafinen peli-ikkuna, joka avautuu uuteen ikkunaan
 
 ### Pelin aikana
-- Käyttäjä voi "aukaista" ruutuja, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina TEHTY
-- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla TEHTY
-- Peli pitää kirjaa käytössä olevista lipuista, joiden määrä ei saa olla suurempi kuin miinojen määrä TEHTY
-- Käyttäjä voi perua miinaksi liputetun ruudun ja käyttää lipun toiseen ruutuun TEHTY
-- Jos pelaaja avaa ruudun, jossa on miina, peli loppuu TEHTY
-- Jos pelaaja avaa ruudun, jonka arvo on 0, peli avaa niin monta nollan arvoista naapuriruutua ja niiden naapuriruutua, kunnes kaikki ruudun naapurien nollat on avattu TEHTY
-- Käyttäjä voi lopettaa pelin TEHTY
-- pelaaja voi voittaa pelin TEHTY
-- pelaaja voi hävitä pelin TEHTY
+- Käyttäjä voi "aukaista" ruutuja, jolloin ruudun alta paljastuu joko numeron sisältävä turvallinen ruutu tai miina
+- Käyttäjä voi merkata miinaksi epäilemänsä ruudun lipulla
+- Peli pitää kirjaa käytössä olevista lipuista, joiden määrä ei saa olla suurempi kuin miinojen määrä 
+- Käyttäjä voi perua miinaksi liputetun ruudun ja käyttää lipun toiseen ruutuun 
+- Jos pelaaja avaa ruudun, jossa on miina, peli loppuu
+- Jos pelaaja avaa ruudun, jonka arvo on 0, peli avaa niin monta nollan arvoista naapuriruutua ja niiden naapuriruutua, kunnes kaikki ruudun naapurien nollat on avattu 
+- Käyttäjä voi lopettaa pelin
+- pelaaja voi voittaa pelin 
+- pelaaja voi hävitä pelin
 
 ### Pelin jälkeen
 - Jos pelaaja hävisi:
-  -  peli ilmoittaa häviöstä TEHTY
-  -  peli paljastaa kaikki miinat pelilaudalta TEHTY
-  -  pelaaja voi pelata uuden pelin tai palata alkuvalikkoon 
-- Jos pelaaja voitti, hän voi kirjata nimimerkkinsä ennätystauluun varten, pelata uuden pelin tai palata alkuvalikkoon
-- Sovellus tallentaa ennätystauluun voittaneen käyttäjän nimimerkin ja pelikellon ajan
-  - Jos käyttäjän aika ei ole tämän tason viiden parhaan tallennetun ajan joukossa, peli ei tarjoa mahdollisuutta tallentaa ennätystä
-  - Jos tietokantataulua ei ole vielä olemassa, sovellus luo sellaisen
-  - Sovellus tallentaa tuloksen tietokantatauluun
+  -  peli ilmoittaa häviöstä 
+  -  peli paljastaa kaikki miinat pelilaudalta 
+  -  peli ilmoittaa väärin liputetut ruudut (eli liputetun ruudun arvo ei ollutkaan miina)
+  -  graafinen peli-ikkuna sulkeutuu itse automaattisesti 2 sekunnin kuluttua
+- Jos pelaaja voitti:
+  - peli ilmoittaa voitosta
+  - graafinen peli-ikkuna sulkeutuu itse automaattisesti 2 sekunnin kuluttua
+- Pelaaja voi komentoriviltä valita joko pelaavansa uuden pelin tai sulkea sovelluksen
+
 
 ## Jatkokehitysideoita
 - Käyttäjä voi generoida itse oman kokoisensa pelilaudan ja asettaa sinne haluamansa määrän miinoja
-- Sovellukseen tehdään graafinen käyttöliittymä
 - Peliin voi tehdä lisätasoja, kuten supervaikea
-- Pelilaudan värin ja lippujen värin voi valita itse
+- Pelistä löytyy ennätystaulu, johon on tallennettu parhaat tulokset
+- Pelistä löytyy pelikello
 - Pelistä löytyy useampi ennätystaulu: valittavat tasot (helppo, keskivaikea, vaikea), sekä custom-taulujen ennätykset
