@@ -111,7 +111,7 @@ class Ui():
         clock = pygame.time.Clock()
 
         while not end:
-            self.screen.fill((127, 127, 127))
+            self.screen.fill((131, 139, 139))
 
             self.print_gameboard()
 
