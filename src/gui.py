@@ -26,10 +26,8 @@ class GUI():
         self.empty = pygame.image.load(os.path.join('src/pictures', 'empty.png'))
         self.mine = pygame.image.load(os.path.join('src/pictures', 'mine.png'))
         self.flag = pygame.image.load(os.path.join('src/pictures', 'flag.png'))
-        self.not_mine = pygame.image.load(
-            os.path.join('src/pictures', 'was_not.png'))
+        self.not_mine = pygame.image.load(os.path.join('src/pictures', 'was_not.png'))
         self.side = 30
-        self.square = -1
         self.grid_value = -1
         self.if_solved = (False, 1)
         self.footer_pos = 0
@@ -127,7 +125,6 @@ class GUI():
                 pygame.time.delay(500)
                 end = True
 
-            #tähän myös try - exception IndexError. vois yhistellä tota vähän, nyt toistoa
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
                     end = True
@@ -148,6 +145,3 @@ class GUI():
                         self.if_solved = open_square(self.gameboard, row, column)
         pygame.quit()
 
-class Draw_GUI():
-    def __init__(self):
-        print("moi")
