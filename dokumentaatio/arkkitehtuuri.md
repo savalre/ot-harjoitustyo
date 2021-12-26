@@ -1,6 +1,8 @@
 # Arkkitehtuurikuvaus
 ## Luokkakaavio
-![luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/77473dad5212ce95df6336e2c080048e070170da/dokumentaatio/pictures/luokkakaavio.png)
+![luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/8a3b2e71d7843cdfd30118cc4f740a61c5e5d0e7/dokumentaatio/pictures/luokkakaavio.png)
+
+Ohjelman luokkien ja tiedostojen suhteet noudattavat yllä olevaa rakennetta. **Main** aloittaa ohjelman suorittamisen, ja se luo uuden graafisen käyttöliittymän, sekä käynnistää graafisen peliloopin. **GUI** muodostaa pelilaudat tietojen perusteella kutsumalla ja luomalla uuden Board-olion. Board-luokkaa käytetään pelilaudan luomiseen. GUI:ssa tapahtuvat metodit ja pelitapahtumat käsitellään **eventsin** avulla. Koska events käsittelee Board-oliota GUI:n ohjeiden mukaisesti, on se myös tietoinen Board-luokan attribuuteista. 
 
 ## Toiminnallisuuksien kuvaaminen
 
@@ -19,3 +21,4 @@ Lopuksi board.py palauttaa uuden Board-olion index.py:lle, jotta pelilooppi vois
 ![uuden laudan luonti](https://github.com/savalre/ot-harjoitustyo/blob/7dd9a9110fbb178776e8a098bb16d59ba9dda39d/dokumentaatio/pictures/Minesweeper%20board%20generating.png)
 
 ### Ohjelman rakenteen kehittäminen
+hauku guita
