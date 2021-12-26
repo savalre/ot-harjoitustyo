@@ -24,7 +24,6 @@ class GUI():
         self.mine = pygame.image.load(os.path.join('src/pictures', 'mine.png'))
         self.flag = pygame.image.load(os.path.join('src/pictures', 'flag.png'))
         self.not_mine = pygame.image.load(os.path.join('src/pictures', 'was_not.png'))
-        # lista jossa numerot 1 - 8 ja niiden polut ja lue ne siitä, silloin ei tarvitse ladata uudestaan kuvia
         self.side = 30
         self.if_solved = (False, 1)
         self.footer_pos = 0
