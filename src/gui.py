@@ -4,7 +4,6 @@
         [type]: [description]
     """
 import os
-import csv
 import pygame
 from board import Board
 from events import open_square, process_flags
@@ -27,15 +26,15 @@ class GUI():
         self.mine = pygame.image.load(os.path.join('src/pictures', 'mine.png'))
         self.flag = pygame.image.load(os.path.join('src/pictures', 'flag.png'))
         self.not_mine = pygame.image.load(os.path.join('src/pictures', 'was_not.png'))
+        # lista jossa numerot 1 - 8 ja niiden polut ja lue ne siitä, silloin ei tarvitse ladata uudestaan kuvia
         self.side = 30
-        self.grid_value = -1
         self.if_solved = (False, 1)
         self.footer_pos = 0
         self.text_center = 0
-        self.screen = pygame.display.set_mode(self.__get_screen_size(level))
+        self.screen = pygame.display.set_mode(self.__get_screen_size())
         pygame.display.set_caption("Minesweeper")
 
-    def __get_screen_size(self, level):
+    def __get_screen_size(self):
         """[summary]
 
         Args:
@@ -44,16 +43,7 @@ class GUI():
         Returns:
             [type]: [description]
         """
-        size_value = 0
-
-        dirname = os.path.dirname(__file__)
-        file_path = os.path.join(dirname, "specs.csv")
-
-        with open(file_path) as file:
-            reader = csv.reader(file)
-            for row in reader:
-                if row[0] == level:
-                    size_value = int(row[3])
+        size_value = self.side * self.gameboard.dimension
         screen_size = (size_value, size_value+40)
         self.footer_pos = size_value+10
         self.text_center = size_value//2
@@ -86,8 +76,8 @@ class GUI():
                         image = pygame.image.load(command)
                         image = image.convert()
                         self.screen.blit(image, (row*self.side, column*self.side))
-    
-        font = pygame.font.Font(None, 25) #font size here
+
+        font = pygame.font.Font(None, 30)
         message = ""
 
         if self.if_solved == (True,0):
@@ -118,11 +108,11 @@ class GUI():
             clock.tick(60)
 
             if self.if_solved == (True, 1):
-                pygame.time.delay(500)
+                pygame.time.delay(2000)
                 end = True
 
             if self.if_solved == (True, 0):
-                pygame.time.delay(500)
+                pygame.time.delay(2000)
                 end = True
 
             for event in pygame.event.get():
@@ -144,4 +134,3 @@ class GUI():
                     if all(x < len(self.gameboard.player_view) for x in (row, column)):
                         self.if_solved = open_square(self.gameboard, row, column)
         pygame.quit()
-

@@ -29,7 +29,7 @@ def select_level():
                     return_value = "Easy"
                 elif level == 2:
                     return_value = "Medium"
-                else: 
+                else:
                     return_value = "Hard"
 
                 break

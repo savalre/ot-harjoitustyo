@@ -32,12 +32,10 @@ def open_square(gameboard, row: int, column: int):
     if game_over is True:
         return (True, 0)
 
-    if game_over is False and gameboard.grid_values[row][column] == 0:
+    if gameboard.grid_values[row][column] == 0:
         __open_all_zero_squares(gameboard, row, column)
-        return(False, 0)
 
-    if check_win is False:
-        return(False, 0)
+    return(False, 0)
 
 
 def __check_if_won(gameboard, row, column):
@@ -46,20 +44,20 @@ def __check_if_won(gameboard, row, column):
 
     Args:
         gameboard ([board]): [board object that is used in the current game]
-        row ([integer]): [row number of the gameboard]
-        column ([integer]): [column number of the gameboard]
+        rows ([integer]): [row number of the gameboard]
+        clmn ([integer]): [column number of the gameboard]
 
     Returns:
         [boolean]: [returns True if game is won, False if not]
     """
     counter = 0
-    rws = row
+    rows = row
     clmn = column
-    for rws in range(gameboard.dimension):
+    for rows in range(gameboard.dimension):
         for clmn in range(gameboard.dimension):
-            if gameboard.player_view[rws][clmn] != 'M':
-                if gameboard.player_view[rws][clmn] != '*':
-                    if gameboard.player_view[rws][clmn] != 'F':
+            if gameboard.player_view[rows][clmn] != 'M':
+                if gameboard.player_view[rows][clmn] != '*':
+                    if gameboard.player_view[rows][clmn] != 'F':
                         counter = counter+1
 
     mines_from_squares = (gameboard.dimension *
@@ -82,17 +80,17 @@ def __check_if_lost(gameboard, row, column):
         [boolean]: [returns true if the game is lost, otherwise false]
     """
     if gameboard.grid_values[row][column] == 'M':
-        for rw in range(gameboard.dimension):
+        for rows in range(gameboard.dimension):
             for clmn in range(gameboard.dimension):
-                if gameboard.grid_values[rw][clmn] == 'M':
-                    if gameboard.player_view[rw][clmn] == 'F':
-                        gameboard.player_view[rw][clmn] = 'F'
+                if gameboard.grid_values[rows][clmn] == 'M':
+                    if gameboard.player_view[rows][clmn] == 'F':
+                        gameboard.player_view[rows][clmn] = 'F'
                     else:
-                        gameboard.player_view[rw][clmn] = 'M'
+                        gameboard.player_view[rows][clmn] = 'M'
 
-                if (gameboard.player_view[rw][clmn] == 'F'
-                        and gameboard.grid_values[rw][clmn] != 'M'):
-                    gameboard.player_view[rw][clmn] = 'X'
+                if (gameboard.player_view[rows][clmn] == 'F'
+                        and gameboard.grid_values[rows][clmn] != 'M'):
+                    gameboard.player_view[rows][clmn] = 'X'
 
         return True
 

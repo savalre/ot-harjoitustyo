@@ -44,7 +44,7 @@ class Board:
         dirname = os.path.dirname(__file__)
         file_path = os.path.join(dirname, "specs.csv")
 
-        with open(file_path) as file:
+        with open(file_path, encoding = 'UTF_8') as file:
             reader = csv.reader(file)
             for row in reader:
                 if row[0] == level:
@@ -128,7 +128,7 @@ class Board:
                     self.grid_values[row][column] = self.grid_values[row][column] + 1
 
     def create_player_board(self):
-        """[creates the board that is visible to the player, 
+        """[creates the board that is visible to the player,
         and is updated with values from opened squares throughout the game]
         """
         self.player_view = [
