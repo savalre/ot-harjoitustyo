@@ -1,29 +1,40 @@
 # Käyttöohje
 
-Voit ladata viimeisimmän projektin releasen [täältä](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko5).
-
 ## Ohjelman asentaminen ja käynnistys
 
-Tapahtuu README-ohjeiden avulla.
+Aloita lataamalla peli koneellesi. Voit ladata projektin viimeisimmän releasen [täältä](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko5). MUUTA TÄMÄ KUN VALMISTA. Kun olet ladannut tiedoston, asenna riippuvuudet komentorivillä komennolla **poetry install**.
+
+**Huomiothan**, että ohjelman toimiminen on testattu seuraavilla käyttöjärjestelmillä:
+  - macOS Monterey, v. 12.0.1
+  - Cubbli 20 (Ubuntu 20.04 LTS -pohjainen Linux-käyttöjärjestelmä
+  - Arch Linux
+
+Ohjelmaa ei ole testattu Windows-käyttöjärjestelmällä. Pelin lähdekoodi sisältää komennon, joka ei välttämättä toimi Windowsilla, ja täten peli ei toimi halutulla tavalla.
+
+### Ohjelman käynnistys
+Asennettuasi ohjelman voit käynnistää sen komennolla **poetry run invoke start**
 
 ## Pelin aloitus
 
-Peliä pelataan komentorivillä. Aloitusvalikon toiminnot ovat seuraavat:
-  - 1 - aloitat uuden pelin
-    - jos valitset 1, voit valita vaikeusasteen näppäilemällä komennon 1 (helppo), 2 (keskivaikea) tai 3 (vaikea)
-  - 2 - lopetat ohjelman suorituksen
+Itse peliä pelataan graafisella käyttöliittymällä, mutta aloitusvalikko on komentorivillä. Aloitusvalikon toiminnot ovat seuraavat:
+  - 1 (+ Enter) - aloitat uuden pelin
+    - jos valitset 1, voit valita vaikeusasteen näppäilemällä komennon 1 (helppo), 2 (keskivaikea) tai 3 (vaikea) (+ Enter)
+  - 2 (+ Enter) - lopetat ohjelman suorituksen
 
 ## Pelin pelaaminen
 
-Pelilaudan rivien ja sarakkeiden numerointi menee välillä 1-10. Avaa ruutu syöttämällä komentoriville koordinaatit siihen ruutun, jonka haluat avata muodossa:  
+Peli avautuu automaattisesti uuteen ikkunaan. Avaa pelilaudan ruutu klikkaamalla sitä hiiren vasemmalla painikkeella. Jos tahdot merkitä miinaksi epäilemäsi ruudun
+lipulla, paina hiiren oikeaa näppäintä. Lippuja on rajattu määrä käytössä, ja jäljellä olevien lippujen määrä näkyy peliruudukon alapuolella.
 
-  **RIVI VÄLILYÖNTI SARAKE**
+Voitat pelin, jos avaat kaikki muut paitsi miinoja sisältävät ruudut. Häviät, jos osut miinaan. Tarkemmat säännöt voi tarkistaa esimerkiksi Wikipediasta.
 
-Jos haluat merkata lipulla miinaksi epäilemäsi ruudun, syötä liputettavan ruudun koordinaatit muodossa:
+## Uusi peli
 
-**RIVI VÄLILYÖNTI SARAKE VÄLILYÖNTI F**  
+Pelin loputtua peli-ikkuna sulkeutuu itsekseen kahden sekunnin kuluttua. Jos haluat pelata uudestaan, näppäile komentoriville:
+  - 1 (+ Enter)
 
-Peli ilmoittaa, jos syötteesi on väärä.
 
-## Pelin lopetus
-  Voit missä vaiheessa tahansa lopettaa pelin kesken ja poistua ohjelmasta näppäilemällä komentoriville käskyn "e"
+## Pelin lopettaminen
+
+Voit missä vaiheessa tahansa lopettaa pelin kesken painamalla punaista rastia peliruudun yläkulmassa. Voit sulkea koko ohjelman suorituksen näppäilemällä numeron 2 (+ Enter) komentoriville. 
+
