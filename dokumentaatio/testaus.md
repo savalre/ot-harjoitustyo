@@ -15,8 +15,8 @@ Käyttöliittymä, sekä komentorivillä oleva että graafinen osuus, testattiin
 Lopullisen version testauksessa ei saatu aiheutettua yhtään virhetilanteita.
 
 ### Testauskattavuus
-Sovelluslogiikan testikattavuus on X prosenttia JA LINKKI
-
+Sovelluslogiikan testikattavuus on 97%.
+![coverage-report](https://github.com/savalre/ot-harjoitustyo/blob/bc1cfe4d27c6029c291f53fc8e2f21d768115e85/dokumentaatio/pictures/coverage_report.png)
 Testaamatta jäi GUI:n sisältävä tiedosto *gui.py*, sillä suurin osa GUI:n toiminnoista on testattu boardin ja eventin yksikkötestauksissa. Näin
 testauksen ulkopuolelle jäi lähinnä graafisen käyttöliittymän eri komponenttien luonti, alustaminen, asettelu ja päivittäminen. Näiden toimivuus varmistettiin 
 manuaalisella käyttöliittymätestauksella.
