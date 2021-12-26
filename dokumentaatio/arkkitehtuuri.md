@@ -17,3 +17,5 @@ ruudun läheisyydessä on. create_player_board taas luo ns. "tyhjän", vain yhde
 Lopuksi board.py palauttaa uuden Board-olion index.py:lle, jotta pelilooppi voisi käsitellä lautaa.
 
 ![uuden laudan luonti](https://github.com/savalre/ot-harjoitustyo/blob/7dd9a9110fbb178776e8a098bb16d59ba9dda39d/dokumentaatio/pictures/Minesweeper%20board%20generating.png)
+
+### Ohjelman rakenteen kehittäminen
