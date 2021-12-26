@@ -28,3 +28,6 @@ Sovellus on klassikkopeli Miinaharava. Miinaharavan säännöt voi tarkistaa esi
 
 ## Pylint
 1. Aja pylint-tarkistus komennolla **poetry run invoke lint**
+
+### Lähteet
+Grafiikka on muokattu kuvakäsittelyllä vanhan Windows-käyttöjärjestelmän harmaan miinapeligrafiikan pohjalta.
