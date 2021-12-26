@@ -8,9 +8,11 @@ Sovellus on tällä hetkellä pelattavissa vain komentorivillä, mutta tarkoitus
 [Linkki viikon 6 releaseen](https://github.com/savalre/ot-harjoitustyo/releases/tag/viikko6)
 ## Dokumentaatio
 [Arkkitehtuurikuvaus](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/arkkitehtuuri.md)  
+[Käyttöohje](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/kayttoohje.md)
+[Luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/f14552c60e27a7fa43cfb7daf850fba0e176957d/dokumentaatio/arkkitehtuuri.md)  
 [Määrittelydokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/vaatimusmaarittely.md)  
+[Testausdokumentti](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/testaus.md)  
 [Työaikakirjanpito](https://github.com/savalre/ot-harjoitustyo/blob/master/dokumentaatio/tyoaikakirjanpito.md)  
-[Luokkakaavio](https://github.com/savalre/ot-harjoitustyo/blob/f14552c60e27a7fa43cfb7daf850fba0e176957d/dokumentaatio/arkkitehtuuri.md)
 
 ## Sovelluksen asennus
 
