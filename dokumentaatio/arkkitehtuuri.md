@@ -4,8 +4,7 @@
 
 Ohjelman luokkien ja tiedostojen suhteet noudattavat yllä olevaa rakennetta. **Main** aloittaa ohjelman suorittamisen, ja se luo uuden graafisen käyttöliittymän, sekä käynnistää graafisen peliloopin. **GUI** muodostaa pelilaudat tietojen perusteella kutsumalla ja luomalla uuden Board-olion. Board-luokkaa käytetään pelilaudan luomiseen. GUI:ssa tapahtuvat metodit ja pelitapahtumat käsitellään **eventsin** avulla. Koska events käsittelee Board-oliota GUI:n ohjeiden mukaisesti, on se myös tietoinen Board-luokan attribuuteista. 
 
-## Toiminnallisuuksien kuvaaminen
-
+## Päätoiminnallisuudet
 ### Uuden pelin aloitus ja laudan luominen
 Pelin käynnistyessä pelaaja valitsee pelaavansa uuden pelin. Pelaaja voi valita kolmesta tasosta: helppo, keskivaikea ja vaikea. Pelaajan valittua vaikeustason
 kutsutaan metodeita select_level() ja grid_width(), jolla luodaan vaikeustason mukaiset pelilaudan mitata ja string-versio valitusta tasosta. Nämä
@@ -20,5 +19,11 @@ Lopuksi board.py palauttaa uuden Board-olion index.py:lle, jotta pelilooppi vois
 
 ![uuden laudan luonti](https://github.com/savalre/ot-harjoitustyo/blob/7dd9a9110fbb178776e8a098bb16d59ba9dda39d/dokumentaatio/pictures/Minesweeper%20board%20generating.png)
 
+### Pelitapahtuman käsittely
+
+### Pelin lopettaminen
+
+### Muut toiminnallisuudet
+
 ### Ohjelman rakenteen kehittäminen
-hauku guita
+GUI:n rakenne jäi valitettavan sekavaksi. Jatkossa olisi hyvä välttää näin pitkiä metodeita samassa luokassa, ja esimerkiksi print_gameboard() eli graafisen ikkunan piirtämisen voisi eriyttää omaksi luokakseen, jota GUI:ssa oleva pelilooppi kutsuisi. 
